@@ -28,7 +28,7 @@
 
     </head>
 
-    <body>
+    <body class="body">
         <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
             home button
@@ -42,11 +42,51 @@
         <div class="row topBanner">
             <div class="col-md-2"></div>
             <div class="col-md-4"><h1 class=title>Olympics Dashboard</h1></div>
-            <div class="col-md-2">
+            <div class="col-md-4">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Olympic_rings_without_rims.svg" alt="Olympic Rings">
             </div>
+            <div class="col-md-2" style="float: right;">
+                <div class="row">
+                    <a href="/Users/dagneycooke/Desktop/Homework/Project 2/project_2/Resources/athlete_events.csv" download>Download Olympics Data</a>
+                </div>
+                <div class="row">
+                    <a href="/Users/dagneycooke/Desktop/Homework/Project 2/project_2/Resources/populatio_gdp.csv" download>Download GDP Data</a>
+                </div>
+            </div>
+            
             
         </div>
+        <div class="row">
+            <div class="col-md-10">
+                <p></p>
+            </div>
+            <div class="col-md-1">
+                <!-- <div class="custom-select" style="width:200px;"> -->
+                    <p>Filter by Country</p>
+                    <select id="selCountry"  onchange="optionChanged(this.value)">
+                        <option value="0">USA</option>
+                        <option value="1">Canada</option>
+                        <option value="2">Mexico</option>
+                        <option value="3">Russia</option>
+                        <option value="4">China</option>
+                        <option value="5">Portugal</option>
+                    </select>
+                <!-- </div> -->
+            </div>
+            <div class="col-md-1">
+                <p>Filter by Event</p>
+                <select id="selEvent" onchange="optionChanged(this.value)">
+                    <option value="0">Summer 2020</option>
+                    <option value="1">Winter 2018</option>
+                    <option value="2">Summer 2016</option>
+                    <option value="3">Winter 2014</option>
+                    <option value="4">Summer 2012</option>
+                    <option value="5">Winter 2010</option>
+                </select>
+            </div>
+        </div>
+
+
 
         <div class="row">
             <div class="col-md-3">

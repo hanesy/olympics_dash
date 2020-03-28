@@ -9,9 +9,19 @@
     font-size: 50pt;
     color: black;
     text-align: center;
+    
 }
 
 .topBanner {
     margin-top: 30px;
     margin-bottom: 30px; 
+}
+
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.body {
+  font-family: "HelveticaNeueExtended";
 }
