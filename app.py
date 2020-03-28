@@ -15,10 +15,13 @@ app = Flask(__name__)
 
 
 disk_engine = create_engine('sqlite:///olympic_events.sqlite')
-conn = disk_engine.connect()
+Base = automap_base()
+Base.prepare(disk_engine, reflect=True)
 session = Session(disk_engine)
 
-Olympians_Team_Final=pd.read_sql("SELECT * FROM olympians_team_final", conn)
+Events = Base.classes.events
+Olympians_Team_Final = Base.classes.olympians_team_final
+Medals_Team_Total = Base.classes.medals_team_total
 
 @app.route("/")
 def index():
@@ -29,27 +32,23 @@ def index():
 @app.route("/olympians_team/<NOC>")
 def olympians_team(NOC):
 
-    sel = [Olympians_Team_Final.Year, 
-            Olympians_Team_Final.Season,
-            Olympians_Team_Final.Team, 
-            Olympians_Team_Final.NOC, 
-            Olympians_Team_Final.No_olympians
-            ]
-
-    results = session.query(*sel).filter(Olympians_Team_Final.NOC == NOC).all()
+    results = session.query(Olympians_Team_Final.Year, Olympians_Team_Final.Season,\
+                        Olympians_Team_Final.Team, Olympians_Team_Final.NOC, Olympians_Team_Final.No_olympians).filter(Olympians_Team_Final.NOC == NOC).all()
 
     # Create a dictionary entry for each row of Combined dataframe
-    combined = {}
+    olympians_team_data = []
     for result in results:
+        combined = {}
         combined["Year"] = result[0]
         combined["Season"] = result[1]
         combined["Team"] = result[2]
         combined["NOC"] = result[3]
         combined["No_olympians"] = result[4]
+        olympians_team_data.append(combined)
         
-    print(combined)
+    print(olympians_team_data)
    
-    return jsonify(combined)
+    return jsonify(olympians_team_data)
 
 
 
