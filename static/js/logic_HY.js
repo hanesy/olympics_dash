@@ -5,6 +5,10 @@
 //     console.log(data)
 // });
 
+d3.json('/olympians_team/USA', function(data){
+    console.log(data);
+});
+
 // I think I should use not years, but summer-winter olympics
 var years = [1960, 1964, 1968, 1972, 1976, 1980, 1984, 1988, 1992, 1960, 1964, 1968, 1972, 1976, 1980, 1984, 1988, 1992,1994, 1996, 1998, 2000, 2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016];
 
