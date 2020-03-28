@@ -17,9 +17,11 @@ app = Flask(__name__)
 disk_engine = create_engine('sqlite:///olympic_events.sqlite')
 Base = automap_base()
 Base.prepare(disk_engine, reflect=True)
-session = Session(disk_engine)
+# open and close session in each of the routes. Delete code below (HY).
+# session = Session(disk_engine) 
 
-Events = Base.classes.events
+# Events wasn't working for me, so I commented it out for now (HY)
+# Events = Base.classes.events
 Olympians_Team_Final = Base.classes.olympians_team_final
 Medals_Team_Total = Base.classes.medals_team_total
 
@@ -31,9 +33,14 @@ def index():
 
 @app.route("/olympians_team/<NOC>")
 def olympians_team(NOC):
-
+    # HY added this - you have to open and close sessions in each route
+    session = Session(disk_engine)
+    
     results = session.query(Olympians_Team_Final.Year, Olympians_Team_Final.Season,\
                         Olympians_Team_Final.Team, Olympians_Team_Final.NOC, Olympians_Team_Final.No_olympians).filter(Olympians_Team_Final.NOC == NOC).all()
+
+    # HY added this - you have to open and close sessions in each route
+    session.close ()
 
     # Create a dictionary entry for each row of Combined dataframe
     olympians_team_data = []
