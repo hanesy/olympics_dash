@@ -173,9 +173,9 @@ function createCharts(searchLink) {
         var summerPerCapitaGdp = divideArrays(summerGdp, summerPopulation);
         var winterPerCapitaGdp = divideArrays(winterGdp, winterPopulation);
 
-        olympianCombo('chart1', games, olympians, no_perc, no_perc, golds, silvers, bronzes);
-        olympianCombo('chart1-summer', summerGames, summerOlympians, no_perc, no_perc, summerGolds, summerSilvers, summerBronzes);
-        olympianCombo('chart1-winter', winterGames, winterOlympians, winter_medalist_perc, winter_gold_perc, winterGolds, winterSilvers, winterBronzes);
+        olympianCombo('chart1', 'all games', games, olympians, no_perc, no_perc, golds, silvers, bronzes);
+        olympianCombo('chart1-summer', 'summer games', summerGames, summerOlympians, no_perc, no_perc, summerGolds, summerSilvers, summerBronzes);
+        olympianCombo('chart1-winter', 'winter games', winterGames, winterOlympians, winter_medalist_perc, winter_gold_perc, winterGolds, winterSilvers, winterBronzes);
         olympianPie('chart1-pie', nonmedals, golds, silvers, bronzes, winterNonmedals, winterGolds, winterSilvers, winterBronzes, summerNonmedals, summerGolds, summerSilvers, summerBronzes);
         gdpPopCombo('chart2', years, population, gdp, perCapitaGdp);
         gdpCapMedalScatter('test', winterPerCapitaGdp, winterMedals, winterGolds, summerPerCapitaGdp, summerMedals, summerGolds);
@@ -222,12 +222,12 @@ function createDropDown(selectDiv, arrayName, arrayNoc){
     }
 }
 
-function olympianCombo(selectDiv, games, olympians, medalist_perc, gold_perc, golds, silvers, bronzes){
+function olympianCombo(selectDiv, type, games, olympians, medalist_perc, gold_perc, golds, silvers, bronzes){
     Highcharts.chart(selectDiv, {
   
         title: 
         {
-            text: 'Olympians Over Time (with % medal award)'
+            text: `Olympians Over Time (with % medal award) (${type})`
         },
         
         xAxis: 
