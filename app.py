@@ -34,9 +34,9 @@ def events_final_country():
         Events_Final.Year,
         Events_Final.Season,
         Events_Final.City,
+        Events_Final.Game_Label,
         Events_Final.NOC,
         Events_Final.Country,
-        Events_Final.Game_Label,
         Events_Final.GDP,
         Events_Final.Population,
         Events_Final.No_olympians,
@@ -44,7 +44,6 @@ def events_final_country():
         Events_Final.Gold_athlete,
         Events_Final.Silver_athlete,
         Events_Final.Total_Medals_athlete,
-        Events_Final.No_olympians,
         Events_Final.Bronze_team,
         Events_Final.Gold_team,
         Events_Final.Silver_team,
@@ -62,9 +61,9 @@ def events_final_country():
         combined["Year"] = result[0]
         combined["Season"] = result[1]
         combined["City"] = result[2]
-        combined["NOC"] = result[3]
-        combined["Country"] = result[4]
-        combined["Game_Label"] = result[5]
+        combined["Game_Label"] = result[3]
+        combined["NOC"] = result[4]
+        combined["Country"] = result[5]
         combined["GDP"] = result[6]
         combined["Population"] = result[7]
         combined["No_olympians"] = result[8]
@@ -91,9 +90,9 @@ def events_final_country_noc(NOC):
         Events_Final.Year,
         Events_Final.Season,
         Events_Final.City,
+        Events_Final.Game_Label,
         Events_Final.NOC,
         Events_Final.Country,
-        Events_Final.Game_Label,
         Events_Final.GDP,
         Events_Final.Population,
         Events_Final.No_olympians,
@@ -101,7 +100,6 @@ def events_final_country_noc(NOC):
         Events_Final.Gold_athlete,
         Events_Final.Silver_athlete,
         Events_Final.Total_Medals_athlete,
-        Events_Final.No_olympians,
         Events_Final.Bronze_team,
         Events_Final.Gold_team,
         Events_Final.Silver_team,
@@ -119,9 +117,9 @@ def events_final_country_noc(NOC):
         combined["Year"] = result[0]
         combined["Season"] = result[1]
         combined["City"] = result[2]
-        combined["NOC"] = result[3]
-        combined["Country"] = result[4]
-        combined["Game_Label"] = result[5]
+        combined["Game_Label"] = result[3]
+        combined["NOC"] = result[4]
+        combined["Country"] = result[5]
         combined["GDP"] = result[6]
         combined["Population"] = result[7]
         combined["No_olympians"] = result[8]
@@ -148,9 +146,9 @@ def events_final_games(Game_Label):
         Events_Final.Year,
         Events_Final.Season,
         Events_Final.City,
+        Events_Final.Game_Label,
         Events_Final.NOC,
         Events_Final.Country,
-        Events_Final.Game_Label,
         Events_Final.GDP,
         Events_Final.Population,
         Events_Final.No_olympians,
@@ -158,7 +156,6 @@ def events_final_games(Game_Label):
         Events_Final.Gold_athlete,
         Events_Final.Silver_athlete,
         Events_Final.Total_Medals_athlete,
-        Events_Final.No_olympians,
         Events_Final.Bronze_team,
         Events_Final.Gold_team,
         Events_Final.Silver_team,
@@ -176,9 +173,9 @@ def events_final_games(Game_Label):
         combined["Year"] = result[0]
         combined["Season"] = result[1]
         combined["City"] = result[2]
-        combined["NOC"] = result[3]
-        combined["Country"] = result[4]
-        combined["Game_Label"] = result[5]
+        combined["Game_Label"] = result[3]
+        combined["NOC"] = result[4]
+        combined["Country"] = result[5]
         combined["GDP"] = result[6]
         combined["Population"] = result[7]
         combined["No_olympians"] = result[8]
