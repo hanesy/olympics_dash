@@ -1,100 +1,204 @@
-
-// ---------------- Once JSON is working Delete Code Below.
-
-// var years = [1960, 1964, 1968, 1972, 1976, 1980, 1984, 1988, 1992, 1960, 1964, 1968, 1972, 1976, 1980, 1984, 1988, 1992,1994, 1996, 1998, 2000, 2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016];
-var events = [1960, 1964, 1968, 1972, 1976, 1980, 1984, 1988, 1992, 1960, 1964, 1968, 1972, 1976, 1980, 1984, 1988, 1992,1994, 1996, 1998, 2000, 2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016];
-
-var olympians = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10];
-
-var golds = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-var silvers = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2];
-var bronzes = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3];
-
-var medals = [];
-var nonmedals = [];
-for (var i=0; i<events.length; i++){
-    var medalist = golds[i]+silvers[i]+bronzes[i];
-    var nonmedalist = olympians[i]-medalist;
-    
-    medals.push(medalist);
-    nonmedals.push(nonmedalist);
-}
-
-var medalist_perc= divideArrays(medals, olympians);
-var gold_perc = divideArrays(golds, olympians);
-
-var population = [1960, 1964, 1968, 1972, 1976, 1980, 1984, 1988, 1992, 1994, 1996, 1998, 2000, 2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016]
-var gdp = [100008790, 100006095, 100009214, 100000361, 100006817, 100001518, 100007779, 100009036, 100002822, 100003445, 100000356, 100009372, 100009034, 100000995, 100008994, 100003269, 100008958, 100000317, 100008620, 100005227, 100004029]
-var perCapitaGdp = divideArrays(gdp, population);
-
-// -----------------Once JSON is Working, Delete Code Above.
-
 Highcharts.setOptions({
     lang: {
       decimalPoint: '.',
-      thousandsSep: ','
+      thousandsSep: ',',
+      numericSymbols: ["k", "m", "G", "T", "P", "E"],
     }
 });
 
-// div selections
-var olympianComboDiv = 'chart1';
-var olympianPieDiv = 'chart1-pie';
-var gdpPopComboDiv = 'chart2';
 
+var firstLink = '/events_final/'
 
-d3.json('/olympians_team/USA', function(data){
-    console.log(data);
+function init()
+{
+    var countries = [];
+    var nocs = [];
+    var events = [];
 
-    // declare arrays
-    // var years = [];
-    // var events = [];
-    // var olympians = [];
-    // var golds = [];
-    // var silvers = [];
-    // var bronzes = [];
-    // var population = [];
-    // var gdp = [];
+    d3.json(firstLink, function(data)
+    {
+        data.forEach(function(d) {
+            var country = d.Country;
+            var noc = d.NOC;
+            var event = d.Game_Label;
+            if (countries.includes(country)==false)
+            {
+                countries.push(country);
+                nocs.push(noc);
+            }
+            if (events.includes(event)==false)
+            {
+                events.push(event);
+            }
+        })
+        createDropDown("#selCountry", countries, nocs);
+        createDropDown("#selEvent", events, events);
+    });
 
-    // data.forEach(function(d) {
-    //     // unpack each variable
-    //     var year = d.Year;
-    //     var event;
-    //     var olympian;
-    //     var gold;
-    //     var silver;
-    //     var bronze;
+    // createCharts('/events_final/USA')
+};
 
-    //     // push to arrays
-    //     years.push(year);
-    //   });
-    
-    
-    // calculated arrays
-    // var medalist_perc = divideArrays(medals, olympians);
-    // var gold_perc = divideArrays(medals, olympians);
-    // var perCapitaGdp = divideArrays(gdp, population);
-    // var medals = [];
-    // var nonmedals = [];
-    // for (var i=0; i<years.length; i++){
-    //     var medalist = golds[i]+silvers[i]+bronzes[i];
-    //     var nonmedalist = olympians[i]-medalist;
+function eventChanged(value){
+    console.log(`event has changed to ${value}`);
+    // var searchLink = `/events_final/${value}`
+    // createCharts(searchLink);
+    d3.select("#selCountry").property("value", "default");
+}
+
+function countryChanged(value){
+    console.log(`country has changed to ${value}`);
+    var searchLink = `/events_final/${value}`
+    createCharts(searchLink);
+    d3.select("#selEvent").property("value", "default");
+}
+
+function createCharts(searchLink) {
+    d3.json(searchLink, function(data){
+        console.log(data);
+
+        var years = [];
+        var games = [];
+        var summerGames = [];
+        var winterGames = [];
+
+        var olympians = [];
+        var summerOlympians = [];
+        var winterOlympians = [];
         
-    //     medals.push(medalist);
-    //     nonmedals.push(nonmedalist);
-    // }
-    // console.log(years);
+        var golds = [];
+        var summerGolds= [];
+        var winterGolds=[];
 
-    olympianCombo(events, olympians, medalist_perc, gold_perc, golds, silvers, bronzes);
-    // olympianPie(nonmedals, golds, silvers, bronzes);
-    // gdpPopCombo(years, population, gdp, perCapitaGdp);
-    // gdpCapMedalScatter();
-});
+        var silvers = [];
+        var summerSilvers = [];
+        var winterSilvers = [];
+    
+        var bronzes = [];
+        var summerBronzes = [];
+        var winterBronzes = [];
+
+        var population = [];
+        var summerPopulation = [];
+        var winterPopulation = [];
+        var gdp = [];
+        var summerGdp = [];
+        var winterGdp = [];
+
+        // unpack each variable    
+        data.forEach(function(d) {
+
+            var year = d.Year;
+            years.push(year);
+
+            var game = d.Game_Label;
+            games.push(game);
+
+            var olympian = d.No_olympians
+            olympians.push(olympian);
+
+            var gold = d.Gold_athlete;
+            golds.push(gold);
+
+            var silver = d.Silver_athlete;
+            silvers.push(silver);
+            
+            var bronze = d.Bronze_athlete;
+            bronzes.push(bronze);
+
+            var pop = d.Population;
+            population.push(pop);
+
+            var g = d.GDP;
+            gdp.push(g);
+
+            var season = d.Season;
+            if (season == "Summer"){
+                summerGames.push(game);
+                summerOlympians.push(olympian);
+                summerGolds.push(gold);
+                summerSilvers.push(silver);
+                summerBronzes.push(bronze);
+                summerPopulation.push(pop);
+                summerGdp.push(g);
+            }
+            else{
+                winterGames.push(game);
+                winterOlympians.push(olympian);
+                winterGolds.push(gold);
+                winterSilvers.push(silver);
+                winterBronzes.push(bronze);
+                winterPopulation.push(pop);
+                winterGdp.push(g);
+            }
+
+
+        });
+
+        var medals = [];
+        var summerMedals = [];
+        var winterMedals = [];
+        var nonmedals = [];
+        var summerNonmedals = [];
+        var winterNonmedals=[];
+
+        for (var i=0; i<games.length; i++){
+            var medalist = golds[i]+silvers[i]+bronzes[i];
+            var nonmedalist = olympians[i]-medalist;
+            
+            medals.push(medalist);
+            nonmedals.push(nonmedalist);
+        }
+        
+        for (var i=0; i<summerGames.length; i++){
+            var medalist = summerGolds[i]+summerSilvers[i]+summerBronzes[i];
+            var nonmedalist = summerOlympians[i]-medalist;
+            
+            summerMedals.push(medalist);
+            summerNonmedals.push(nonmedalist);
+        }
+
+        for (var i=0; i<winterGames.length; i++){
+            var medalist = winterGolds[i]+winterSilvers[i]+winterBronzes[i];
+            var nonmedalist = winterOlympians[i]-medalist;
+            
+            winterMedals.push(medalist);
+            winterNonmedals.push(nonmedalist);
+        }
+        
+        var winter_medalist_perc= divideArraysTimesHundred(winterMedals, winterOlympians);
+        var winter_gold_perc = divideArraysTimesHundred(winterGolds, winterOlympians);
+        var no_perc;
+
+        var perCapitaGdp = divideArrays(gdp, population);
+        var summerPerCapitaGdp = divideArrays(summerGdp, summerPopulation);
+        var winterPerCapitaGdp = divideArrays(winterGdp, winterPopulation);
+
+        olympianCombo('chart1', games, olympians, no_perc, no_perc, golds, silvers, bronzes);
+        olympianCombo('chart1-summer', summerGames, summerOlympians, no_perc, no_perc, summerGolds, summerSilvers, summerBronzes);
+        olympianCombo('chart1-winter', winterGames, winterOlympians, winter_medalist_perc, winter_gold_perc, winterGolds, winterSilvers, winterBronzes);
+        olympianPie('chart1-pie', nonmedals, golds, silvers, bronzes, winterNonmedals, winterGolds, winterSilvers, winterBronzes, summerNonmedals, summerGolds, summerSilvers, summerBronzes);
+        gdpPopCombo('chart2', years, population, gdp, perCapitaGdp);
+        gdpCapMedalScatter('test', winterPerCapitaGdp, winterMedals, winterGolds, summerPerCapitaGdp, summerMedals, summerGolds);
+    });
+}
+
+function divideArraysTimesHundred (numerator, denominator) {
+    var array = []
+    
+    for (var i=0; i<denominator.length; i++){
+        var quotient = numerator[i]/denominator[i] * 100;
+        
+        array.push(quotient);
+    };
+
+    return array;
+}
 
 function divideArrays (numerator, denominator) {
     var array = []
     
     for (var i=0; i<denominator.length; i++){
-        var quotient = numerator[i]/denominator[i] * 100;
+        var quotient = numerator[i]/denominator[i];
         
         array.push(quotient);
     };
@@ -110,8 +214,16 @@ function sumArray (array){
     return sum;
 }
 
-function olympianCombo(events, olympians, medalist_perc, gold_perc, golds, silvers, bronzes){
-    Highcharts.chart(olympianComboDiv, {
+function createDropDown(selectDiv, arrayName, arrayNoc){
+    var dropDown = d3.select (selectDiv);
+    dropDown.append("option").attr("value", "default").text("Select Options");
+    for (var i = 0; i < arrayName.length; i++) {
+      dropDown.append("option").attr("value", arrayNoc[i]).text(arrayName[i]);
+    }
+}
+
+function olympianCombo(selectDiv, games, olympians, medalist_perc, gold_perc, golds, silvers, bronzes){
+    Highcharts.chart(selectDiv, {
   
         title: 
         {
@@ -120,7 +232,7 @@ function olympianCombo(events, olympians, medalist_perc, gold_perc, golds, silve
         
         xAxis: 
         {
-            categories: events,
+            categories: games,
             crosshair: true
         },
     
@@ -158,7 +270,7 @@ function olympianCombo(events, olympians, medalist_perc, gold_perc, golds, silve
             },
             labels:
             {
-                format: '{value} %',
+                format: '{value:,.0f} %',
                 style: 
                 {
                     color: Highcharts.getOptions().colors[0]
@@ -222,7 +334,8 @@ function olympianCombo(events, olympians, medalist_perc, gold_perc, golds, silve
                     fillColor: 'white'
                 },
                 tooltip: {
-                    valueSuffix: ' %'
+                    valueSuffix: ' %',
+                    valueDecimals: 0
                 }
     
             }, 
@@ -238,14 +351,15 @@ function olympianCombo(events, olympians, medalist_perc, gold_perc, golds, silve
                     fillColor: 'gold'
                 },
                 tooltip: {
-                    valueSuffix: ' %'
+                    valueSuffix: ' %',
+                    valueDecimals: 0
                 }
             }]
     });
 }
 
-function olympianPie(nonmedals, golds, silvers, bronzes){
-    Highcharts.chart(olympianPieDiv, {
+function olympianPie(selectDiv, nonmedals, golds, silvers, bronzes, winterNonmedals, winterGolds, winterSilvers, winterBronzes, summerNonmedals, summerGolds, summerSilvers, summerBronzes){
+    Highcharts.chart(selectDiv, {
         chart: 
         {
             plotBackgroundColor: null,
@@ -257,6 +371,31 @@ function olympianPie(nonmedals, golds, silvers, bronzes){
         {
             text: 'All-Time Olympians (with % medal award)'
         },
+        labels: {
+            items: [{
+                html: 'Both Games',
+                style: {
+                    left: '120px',
+                    top: '18px'
+                }
+            },
+            {
+                html: 'Winter Games',
+                style: {
+                    left: '330px',
+                    top: '18px'
+                }
+            },
+            {
+                html: 'Summer Games',
+                style: {
+                    left: '330px',
+                    top: '218px'
+                }
+            }
+            ]
+        },
+        
         tooltip: 
         {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -271,11 +410,11 @@ function olympianPie(nonmedals, golds, silvers, bronzes){
         {
             pie: 
             {
-                allowPointSelect: true,
-                cursor: 'pointer',
+                // allowPointSelect: true,
+                // cursor: 'pointer',
                 dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    enabled: false,
+                    // format: '<b>{point.name}</b>: {point.percentage:.1f} %'
                 }
             }
         },
@@ -286,44 +425,120 @@ function olympianPie(nonmedals, golds, silvers, bronzes){
                 minPointSize: 10,
                 innerSize: '20%',
                 zMin: 0,
-            name: 'Total Medal Count',
+                name: 'Total Medal Count',
+                data: 
+                [
+                    {
+                        name: 'Non-Medalist',
+                        y: sumArray(nonmedals),
+                        color: Highcharts.getOptions().colors[0] // color match bar chart
+                    }, 
+                    {
+                        name: 'Gold',
+                        y: sumArray(golds),
+                        color: Highcharts.getOptions().colors[3] // color match bar chart
+                    }, 
+                    {
+                        name: 'Silver',
+                        y: sumArray(silvers),
+                        color: Highcharts.getOptions().colors[2] // color match bar chart
+                    },
+                    {
+                        name: 'Bronze',
+                        y: sumArray(bronzes),
+                        color: Highcharts.getOptions().colors[1] // color match bar chart
+                    }
+                ],
+                center: [150, 100],
+                size: 100,
+                showInLegend: true,
+                dataLabels: 
+                {
+                    // enabled: true
+                }
+        },
+        {
+            minPointSize: 10,
+            innerSize: '20%',
+            zMin: 0,
+            name: 'Winter Medal Count',
             data: 
             [
                 {
-                    name: 'Non-Medalist',
-                    y: sumArray(nonmedals),
+                    name: 'Winter Non-Medalist',
+                    y: sumArray(winterNonmedals),
                     color: Highcharts.getOptions().colors[0] // color match bar chart
                 }, 
                 {
-                    name: 'Gold',
-                    y: sumArray(golds),
+                    name: 'Winter Gold',
+                    y: sumArray(winterGolds),
                     color: Highcharts.getOptions().colors[3] // color match bar chart
                 }, 
                 {
-                    name: 'Silver',
-                    y: sumArray(silvers),
+                    name: 'Winter Silver',
+                    y: sumArray(winterSilvers),
                     color: Highcharts.getOptions().colors[2] // color match bar chart
                 },
                 {
-                    name: 'Bronze',
-                    y: sumArray(bronzes),
+                    name: 'Winter Bronze',
+                    y: sumArray(winterBronzes),
                     color: Highcharts.getOptions().colors[1] // color match bar chart
                 }
             ],
-            // center: [150, 100],
-            // size: 100,
-            showInLegend: true,
+            center: [350, 50],
+            size: 60,
+            // showInLegend: true,
             dataLabels: 
             {
-                enabled: true
+                // enabled: true
             }
-        }]
+        },
+        {
+            minPointSize: 10,
+            innerSize: '20%',
+            zMin: 0,
+            name: 'Winter Medal Count',
+            data: 
+            [
+                {
+                    name: 'Summer Non-Medalist',
+                    y: sumArray(summerNonmedals),
+                    color: Highcharts.getOptions().colors[0] // color match bar chart
+                }, 
+                {
+                    name: 'Summer Gold',
+                    y: sumArray(summerGolds),
+                    color: Highcharts.getOptions().colors[3] // color match bar chart
+                }, 
+                {
+                    name: 'Summer Silver',
+                    y: sumArray(summerSilvers),
+                    color: Highcharts.getOptions().colors[2] // color match bar chart
+                },
+                {
+                    name: 'Summer Bronze',
+                    y: sumArray(summerBronzes),
+                    color: Highcharts.getOptions().colors[1] // color match bar chart
+                }
+            ],
+            center: [350, 150],
+            size: 60,
+            // showInLegend: true,
+            dataLabels: 
+            {
+                // enabled: true
+            }
+        }
+    
+    
+    
+    ]
     });
 
 }
 
-function gdpPopCombo(years, population, gdp, perCapitaGdp){
-    Highcharts.chart(gdpPopComboDiv, {
+function gdpPopCombo(selectDiv, years, population, gdp, perCapitaGdp){
+    Highcharts.chart(selectDiv, {
         title: 
         {
             text: 'GDP, Population, and GDP per Capita'
@@ -342,47 +557,67 @@ function gdpPopCombo(years, population, gdp, perCapitaGdp){
         yAxis: 
         [{ // Primary yAxis
             title: {
-                text: 'GDP per Capita',
+                text: 'GDP per Capita ($)',
                 style: {
-                    color: Highcharts.getOptions().colors[2]
+                    color: Highcharts.getOptions().colors[0]
                 }
             },
             labels: {
-                format: '${value:,.0f}',
+                // valuePrefix: "$",
+                // format: '${value:,.0f}',
+                // formatter: function() {
+                //     if (this.value >= 1E6) {
+                //       return ('$' + this.value / 1000000 + 'M');
+                //     }
+                //     return '$' + this.value / 1000 + 'k';
+                //   },
                 style: {
-                    color: Highcharts.getOptions().colors[2]
+                    color: Highcharts.getOptions().colors[0]
                 },
     
             }
         }, 
         { // Secondary yAxis
             title: {
-                text: 'GDP (in UNITS HERE)',
+                text: 'GDP ($)',
                 style: {
-                    color: Highcharts.getOptions().colors[0]
+                    color: Highcharts.getOptions().colors[1]
                 }
             },
             labels: {
-                format: '${value:,f}',
+                // format: '${value}',
+                // formatter: function() {
+                //     if (this.value >= 1E6) {
+                //       return '$' + this.value / 1000000 + 'M';
+                //     }
+                //     return '$' + this.value / 1000 + 'k';
+                //   },
                 style: {
-                    color: Highcharts.getOptions().colors[0]
+                    color: Highcharts.getOptions().colors[1]
                 }
             },
             opposite: true
         }, 
         { // Third yAxis
-            labels: {
-                format: '{value:,f}',
-                style: {
-                    color: Highcharts.getOptions().colors[1]
-                }
-            },
             title: {
                 text: 'Population',
                 style: {
-                    color: Highcharts.getOptions().colors[1]
+                    color: Highcharts.getOptions().colors[2]
                 }
             },
+            labels: {
+                // format: '{value:,f}',
+                // formatter: function() {
+                //     if (this.value >= 1E6) {
+                //       return '$' + this.value / 1000000 + 'M';
+                //     }
+                //     return '$' + this.value / 1000 + 'k';
+                //   },
+                style: {
+                    color: Highcharts.getOptions().colors[2]
+                }
+            },
+
             opposite: true
         }
     ],
@@ -417,85 +652,94 @@ function gdpPopCombo(years, population, gdp, perCapitaGdp){
                 type: 'spline',
                 yAxis: 2,
                 data: population,
-    
+                tooltip: 
+                {
+                    // valuePrefix: 'T'
+                }
             },
         ]
     });
 }
 
-function gdpCapMedalScatter() {
-    // NEED TO DEVELOP
+function gdpCapMedalScatter(selectDiv, winterPerCapitaGdp, winterMedals, winterGolds, summerPerCapitaGdp, summerMedals, summerGolds) {
+    var trace1 = {
+        x: winterPerCapitaGdp,
+        y: winterMedals,
+        // mode: 'markers+text',
+        type: 'scatter',
+        mode: 'markers',
+        name: 'Winter Medals',
+        // text: "Total Medals Country + Year",
+        // textposition: 'top center',
+        textfont: {
+            family:  'Raleway, sans-serif'
+            },
+        marker: { size: 12 }
+        };
+    
+    var trace2 = {
+        x: summerPerCapitaGdp,
+        y: summerMedals,
+        // mode: 'markers+text',
+        type: 'scatter',
+        mode: 'markers',
+        name: 'Summer Medals',
+        // text: "Total Medals Country + Year",
+        // textposition: 'top center',
+        textfont: {
+            family:  'Raleway, sans-serif'
+            },
+        marker: { size: 12 }
+        };
+
+    var trace3 = {
+        x: summerPerCapitaGdp,
+        y: summerGolds,
+        // mode: 'markers+text',
+        type: 'scatter',
+        mode: 'markers',
+        name: 'Summer Gold Medals',
+        // text: "Total Medals Country + Year",
+        // textposition: 'top center',
+        textfont: {
+            family:  'Raleway, sans-serif'
+            },
+        marker: { size: 12 }
+        };
+
+    var trace4 = {
+        x: winterPerCapitaGdp,
+        y: winterGolds,
+        // mode: 'markers+text',
+        type: 'scatter',
+        mode: 'markers',
+        name: 'Winter Gold Medals',
+        // text: "Total Medals Country + Year",
+        // textposition: 'top center',
+        textfont: {
+            family:  'Raleway, sans-serif'
+            },
+        marker: { size: 12 }
+        };
+    
+
+        var data = [ trace1, trace2, trace3, trace4 ];
+  
+        var layout = {
+            legend: 
+            {
+                y: 0.5,
+                yref: 'paper',
+                font: {
+                family: 'Arial, sans-serif',
+                size: 20,
+                color: 'grey',
+                }
+            },
+            title:'# Medals and GDP per Capita'
+            };
+            
+            Plotly.newPlot(selectDiv, data, layout);
 }
 
-// // Potential to have this on HighCharts Too
-
-// // All Medals
-// // All Golds
-// // Winter Medals
-// // Winter Golds
-// // Summer Medals
-// // Summer Golds
-// var country_year = ["country - year", "country - year", "country - year", 
-//                     "country - year", "country - year", "country - year"];
-
-// var medals_country_year = [10, 10, 100, 20, 15, 10, 98, 100];
-
-// // should i normalize this by percentile?
-// var perCapitaGdp_country_year = [951, 1730, 4120, 21230, 2130, 12309];
-
-// var golds_country_year = [1, 1, 3, 1, 4, 1, 40, 50];
-
-// // Medals <-> GDP per Capita [Heain]
-// var trace1 = {
-//     x: perCapitaGdp_country_year,
-//     y: medals_country_year,
-//     mode: 'markers+text',
-//     type: 'scatter',
-//     name: 'All Medals',
-//     text: "Total Medals Country + Year",
-//     textposition: 'top center',
-//     textfont: {
-//       family:  'Raleway, sans-serif'
-//     },
-//     marker: { size: 12 }
-//   };
-  
-// var trace2 = {
-//     x: perCapitaGdp_country_year,
-//     y: golds_country_year,
-//     mode: 'markers+text',
-//     type: 'scatter',
-//     name: 'Golds',
-//     text: "Gold Medals Country + Year",
-//     textfont : {
-//         family:'Times New Roman'
-//     } ,
-//     textposition: 'bottom center',
-//     marker: { size: 12 }
-//     };
-  
-//   var data = [ trace1, trace2 ];
-  
-//   var layout = {
-//     xaxis: 
-//     {
-//     //   range: [ 0.75, 5.25 ]
-//     },
-//     yaxis: 
-//     {
-//       range: [0, 150]
-//     },
-//     legend: 
-//     {
-//       y: 0.5,
-//       yref: 'paper',
-//       font: {
-//         family: 'Arial, sans-serif',
-//         size: 20,
-//         color: 'grey',
-//       }
-//     },
-//     title:'# Medals and GDP per Capita'
-//   };
-  
-//   Plotly.newPlot('chart3', data, layout);
+init();

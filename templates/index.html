@@ -63,25 +63,13 @@
             <div class="col-md-1">
                 <!-- <div class="custom-select" style="width:200px;"> -->
                     <p>Filter by Country</p>
-                    <select id="selCountry"  onchange="optionChanged(this.value)">
-                        <option value="0">USA</option>
-                        <option value="1">Canada</option>
-                        <option value="2">Mexico</option>
-                        <option value="3">Russia</option>
-                        <option value="4">China</option>
-                        <option value="5">Portugal</option>
+                    <select id="selCountry"  onchange="countryChanged(this.value)">
                     </select>
                 <!-- </div> -->
             </div>
             <div class="col-md-1">
                 <p>Filter by Event</p>
-                <select id="selEvent" onchange="optionChanged(this.value)">
-                    <option value="0">Summer 2020</option>
-                    <option value="1">Winter 2018</option>
-                    <option value="2">Summer 2016</option>
-                    <option value="3">Winter 2014</option>
-                    <option value="4">Summer 2012</option>
-                    <option value="5">Winter 2010</option>
+                <select id="selEvent" onchange="eventChanged(this.value)">
                 </select>
             </div>
         </div>
@@ -98,19 +86,26 @@
                     <div id="chart1"></div>
                 </div>
                 <div class="row">
-                    <div id="chart1-pie">Chart1-pie</div>
+                    <div id="chart1-summer"></div>
                 </div>
                 <div class="row">
-                    <div id="chart2">Chart2</div>
+                    <div id="chart1-winter"></div>
                 </div>
                 <div class="row">
-                    <div id="chart3">Chart3</div>
+                    <div id="chart1-pie"></div>
                 </div>
                 <div class="row">
-                    <div id="chart4">Chart4</div>
+                    <div id="chart2"></div>
+                </div>
+                <div class="row">
+                    <div id="chart3"></div>
+                </div>
+                <div class="row">
+                    <div id="chart4"></div>
                 </div>
             </div>
         </div>
+        <div id = "test"></div>
 
     
 
