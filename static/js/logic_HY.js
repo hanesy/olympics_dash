@@ -1077,7 +1077,7 @@ function gdpCapMedalScatter(selectDiv, winterPerCapitaGdp, winterMedals, winterG
         xAxis: {
             title: {
                 enabled: true,
-                text: 'GDP per Capita'
+                text: 'GDP per Capita ($)'
             },
             startOnTick: true,
             endOnTick: true,
