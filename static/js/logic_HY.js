@@ -14,28 +14,35 @@ function init()
     var countries = [];
     var nocs = [];
     var events = [];
-    var initLink = '/events_final_country/'
+    var initEventsLink = '/events_final_country/'
+    var initCountryLink = '/NOC_Country_list/'
 
-    d3.json(initLink, function(data)
+    d3.json(initEventsLink, function(data)
     {
         data.forEach(function(d) {
-            var country = d.Country;
-            var noc = d.NOC;
             var event = d.Game_Label;
-            if (countries.includes(country)==false)
-            {
-                countries.push(country);
-                nocs.push(noc);
-            }
             if (events.includes(event)==false)
             {
                 events.push(event);
             }
         })
-        createDropDown("#selCountry", countries, nocs);
         createDropDown("#selEvent", events, events);
-        createDefault();
     });
+
+    d3.json(initCountryLink, function(data)
+    {
+        data.forEach(function(d) {
+            var country = d.Country;
+            var noc = d.NOC;
+            if (countries.includes(country)==false)
+            {
+                countries.push(country);
+                nocs.push(noc);
+            }
+        })
+        createDropDown("#selCountry", countries, nocs);
+    });
+    createDefault();
 };
 
 // Handle Option Changes
