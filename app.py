@@ -192,6 +192,33 @@ def events_final_games(Game_Label):
    
     return jsonify(events_final_data)
 
+
+@app.route("/NOC_Country_list/")
+def NOC_Country_list():
+
+    session = Session(disk_engine)
+
+    sel = [
+        Events_Final.Country,
+        Events_Final.NOC
+        ]
+
+    results = session.query(*sel).group_by(*sel).order_by(Events_Final.Country).all()
+
+    # print(results)
+    session.close ()
+
+    # Create a dictionary entry for each row of Combined dataframe
+    NOC_country_list = []
+    for result in results:
+        combined = {}
+        combined["Country"] = result[0]
+        combined["NOC"] = result[1]
+        
+        NOC_country_list.append(combined)
+   
+    return jsonify(NOC_country_list)
+
 if __name__ == "__main__":
     app.run(debug=True)
 
