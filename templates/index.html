@@ -56,31 +56,26 @@
             
         </div>
         <div class="row">
-            <div class="col-md-10">
-                <p></p>
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+                <p>Filter by Country</p>
+                <select id="selCountry"  onchange="countryChanged(this.value)"></select>
+                <br>
+                <br>
             </div>
-            <div class="col-md-1">
-                <!-- <div class="custom-select" style="width:200px;"> -->
-                    <p>Filter by Country</p>
-                    <select id="selCountry"  onchange="countryChanged(this.value)">
-                    </select>
-                <!-- </div> -->
-            </div>
-            <div class="col-md-1">
+            <div class="col-md-3">
                 <p>Filter by Event</p>
                 <select id="selEvent" onchange="eventChanged(this.value)">
                 </select>
             </div>
+
         </div>
 
-
-
         <div class="row">
-            <div class="col-md-3">
+            <!-- <div class="col-md-3">
                 <a class="twitter-timeline" href="https://twitter.com/Olympics?ref_src=twsrc%5Etfw">Tweets by Olympics</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
+            </div> -->
             <div class="col-md-6 center">
-                
                 <div class="row">
                     <div id="chart1"></div>
                 </div>
@@ -103,6 +98,7 @@
                     <div id="chart4"></div>
                 </div>
             </div>
+            
         </div>
 
 
