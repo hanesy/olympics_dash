@@ -8,6 +8,8 @@ Highcharts.setOptions({
     }
 });
 
+
+
 // Initialize Function -- runs at the end of JS
 function init()
 {
@@ -114,6 +116,19 @@ function defaultOneofTwo(){
         var summerGdp = [];
         var winterGdp = [];
 
+        var tbronzes = [];
+        var summerTBronzes=[];
+        var winterTBronzes=[];
+
+        var tsilvers = [];
+        var summerTSilvers = [];
+        var winterTSilvers=[];
+
+        var tgolds = [];
+        var summerTGolds=[];
+        var winterTGolds=[];
+
+
         // unpack each variable    
         data.forEach(function(d) {
 
@@ -144,6 +159,15 @@ function defaultOneofTwo(){
             var g = d.GDP;
             gdp.push(g);
 
+            var tbronze = d.Bronze_team;
+            tbronzes.push(tbronze);
+
+            var tsilver =d.Silver_team;
+            tsilvers.push(tsilver);
+
+            var tgold = d.Gold_team;
+            tgolds.push(tgold);
+
             var season = d.Season;
             if (season == "Summer"){
                 summerGames.push(game);
@@ -154,6 +178,10 @@ function defaultOneofTwo(){
                 summerBronzes.push(bronze);
                 summerPopulation.push(pop);
                 summerGdp.push(g);
+                summerTBronzes.push(tbronze);
+                summerTSilvers.push(tsilver);
+                summerTGolds.push(tgold);
+
             }
             else{
                 winterGames.push(game);
@@ -164,6 +192,9 @@ function defaultOneofTwo(){
                 winterBronzes.push(bronze);
                 winterPopulation.push(pop);
                 winterGdp.push(g);
+                winterTBronzes.push(tbronze);
+                winterTSilvers.push(tsilver);
+                winterTGolds.push(tgold);
             }
 
         });
@@ -211,6 +242,9 @@ function defaultOneofTwo(){
         olympianCombo('chart1-summer', 'summer games', summerGames, summerOlympians, no_perc, no_perc, summerGolds, summerSilvers, summerBronzes);
         olympianCombo('chart1-winter', 'winter games', winterGames, winterOlympians, winter_medalist_perc, winter_gold_perc, winterGolds, winterSilvers, winterBronzes);
         gdpPopCombo('chart2', years, population, gdp, perCapitaGdp);
+        medalLine('chart5', 'all games', games, tgolds, tsilvers, tbronzes);
+        medalLine('chart5-summer', 'summer games', summerGames, summerTGolds, summerTSilvers, summerTBronzes);
+        medalLine('chart5-winter', 'winter games', winterGames, winterTGolds, winterTSilvers, winterTBronzes);
     });
 }
 
@@ -341,7 +375,9 @@ function defaultTwoofTwo(){
         var winterPerCapitaGdp = divideArrays(winterGdp, winterPopulation);
 
         olympianPie('chart1-pie', nonmedals, golds, silvers, bronzes, winterNonmedals, winterGolds, winterSilvers, winterBronzes, summerNonmedals, summerGolds, summerSilvers, summerBronzes);
-        gdpCapMedalScatter('chart4', winterPerCapitaGdp, winterMedals, winterGolds, winterCountries, winterGames, summerPerCapitaGdp, summerMedals, summerGolds, summerCountries, summerGames);
+        gdpCapMedalScatter('chart4', 'GDP per Capita',winterPerCapitaGdp, winterMedals, winterGolds, winterCountries, winterGames, summerPerCapitaGdp, summerMedals, summerGolds, summerCountries, summerGames);
+        gdpCapMedalScatter('chart4-gdp', 'GDP', winterGdp, winterMedals, winterGolds, winterCountries, winterGames, summerGdp, summerMedals, summerGolds, summerCountries, summerGames);
+        gdpCapMedalScatter('chart4-pop', 'Population', winterPopulation, winterMedals, winterGolds, winterCountries, winterGames, summerPopulation, summerMedals, summerGolds, summerCountries, summerGames);
     });
 }
 
@@ -381,6 +417,19 @@ function countryFilteredCharts(searchLink) {
         var summerGdp = [];
         var winterGdp = [];
 
+        
+        var tbronzes = [];
+        var summerTBronzes=[];
+        var winterTBronzes=[];
+
+        var tsilvers = [];
+        var summerTSilvers = [];
+        var winterTSilvers=[];
+
+        var tgolds = [];
+        var summerTGolds=[];
+        var winterTGolds=[];
+
         // unpack each variable    
         data.forEach(function(d) {
 
@@ -411,6 +460,16 @@ function countryFilteredCharts(searchLink) {
             var g = d.GDP;
             gdp.push(g);
 
+            var tbronze = d.Bronze_team;
+            tbronzes.push(tbronze);
+
+            var tsilver =d.Silver_team;
+            tsilvers.push(tsilver);
+
+            var tgold = d.Gold_team;
+            tgolds.push(tgold);
+
+
             var season = d.Season;
             if (season == "Summer"){
                 summerGames.push(game);
@@ -421,6 +480,9 @@ function countryFilteredCharts(searchLink) {
                 summerBronzes.push(bronze);
                 summerPopulation.push(pop);
                 summerGdp.push(g);
+                summerTBronzes.push(tbronze);
+                summerTSilvers.push(tsilver);
+                summerTGolds.push(tgold);
             }
             else{
                 winterGames.push(game);
@@ -431,6 +493,9 @@ function countryFilteredCharts(searchLink) {
                 winterBronzes.push(bronze);
                 winterPopulation.push(pop);
                 winterGdp.push(g);
+                winterTBronzes.push(tbronze);
+                winterTSilvers.push(tsilver);
+                winterTGolds.push(tgold);
             }
 
 
@@ -480,7 +545,12 @@ function countryFilteredCharts(searchLink) {
         olympianCombo('chart1-winter', 'winter games', winterGames, winterOlympians, winter_medalist_perc, winter_gold_perc, winterGolds, winterSilvers, winterBronzes);
         olympianPie('chart1-pie', nonmedals, golds, silvers, bronzes, winterNonmedals, winterGolds, winterSilvers, winterBronzes, summerNonmedals, summerGolds, summerSilvers, summerBronzes);
         gdpPopCombo('chart2', years, population, gdp, perCapitaGdp);
-        gdpCapMedalScatter('chart4', winterPerCapitaGdp, winterMedals, winterGolds, winterCountries, winterGames, summerPerCapitaGdp, summerMedals, summerGolds, summerCountries, summerGames);
+        gdpCapMedalScatter('chart4', 'GDP per Capita',winterPerCapitaGdp, winterMedals, winterGolds, winterCountries, winterGames, summerPerCapitaGdp, summerMedals, summerGolds, summerCountries, summerGames);
+        gdpCapMedalScatter('chart4-gdp', 'GDP', winterGdp, winterMedals, winterGolds, winterCountries, winterGames, summerGdp, summerMedals, summerGolds, summerCountries, summerGames);
+        gdpCapMedalScatter('chart4-pop', 'Population', winterPopulation, winterMedals, winterGolds, winterCountries, winterGames, summerPopulation, summerMedals, summerGolds, summerCountries, summerGames);
+        medalLine('chart5', 'all games', games, tgolds, tsilvers, tbronzes);
+        medalLine('chart5-summer', 'summer games', summerGames, summerTGolds, summerTSilvers, summerTBronzes);
+        medalLine('chart5-winter', 'winter games', winterGames, winterTGolds, winterTSilvers, winterTBronzes);
     });
 }
 
@@ -519,6 +589,18 @@ function eventFilteredCharts(searchLink) {
         var summerGdp = [];
         var winterGdp = [];
 
+        var tbronzes = [];
+        var summerTBronzes=[];
+        var winterTBronzes=[];
+
+        var tsilvers = [];
+        var summerTSilvers = [];
+        var winterTSilvers=[];
+
+        var tgolds = [];
+        var summerTGolds=[];
+        var winterTGolds=[];
+
         // unpack each variable    
         data.forEach(function(d) {
 
@@ -552,6 +634,16 @@ function eventFilteredCharts(searchLink) {
 
                 var g = d.GDP;
                 gdp.push(g);
+                
+                var tbronze = d.Bronze_team;
+                tbronzes.push(tbronze);
+    
+                var tsilver =d.Silver_team;
+                tsilvers.push(tsilver);
+    
+                var tgold = d.Gold_team;
+                tgolds.push(tgold);
+    
 
                 var season = d.Season;
                 if (season == "Summer"){
@@ -563,6 +655,9 @@ function eventFilteredCharts(searchLink) {
                     summerBronzes.push(bronze);
                     summerPopulation.push(pop);
                     summerGdp.push(g);
+                    summerTBronzes.push(tbronze);
+                    summerTSilvers.push(tsilver);
+                    summerTGolds.push(tgold);
                 }
                 else{
                     winterGames.push(game);
@@ -573,6 +668,9 @@ function eventFilteredCharts(searchLink) {
                     winterBronzes.push(bronze);
                     winterPopulation.push(pop);
                     winterGdp.push(g);
+                    winterTBronzes.push(tbronze);
+                    winterTSilvers.push(tsilver);
+                    winterTGolds.push(tgold);
                 }
             }
 
@@ -622,7 +720,12 @@ function eventFilteredCharts(searchLink) {
         olympianCombo('chart1-winter', 'winter countries', winterCountries, winterOlympians, winter_medalist_perc, winter_gold_perc, winterGolds, winterSilvers, winterBronzes);
         olympianPie('chart1-pie', nonmedals, golds, silvers, bronzes, winterNonmedals, winterGolds, winterSilvers, winterBronzes, summerNonmedals, summerGolds, summerSilvers, summerBronzes);
         gdpPopCombo('chart2', countries, population, gdp, perCapitaGdp);
-        gdpCapMedalScatter('chart4', winterPerCapitaGdp, winterMedals, winterGolds, winterCountries, winterGames, summerPerCapitaGdp, summerMedals, summerGolds, summerCountries, summerGames);
+        gdpCapMedalScatter('chart4', 'GDP per Capita',winterPerCapitaGdp, winterMedals, winterGolds, winterCountries, winterGames, summerPerCapitaGdp, summerMedals, summerGolds, summerCountries, summerGames);
+        gdpCapMedalScatter('chart4-gdp', 'GDP', winterGdp, winterMedals, winterGolds, winterCountries, winterGames, summerGdp, summerMedals, summerGolds, summerCountries, summerGames);
+        gdpCapMedalScatter('chart4-pop', 'Population', winterPopulation, winterMedals, winterGolds, winterCountries, winterGames, summerPopulation, summerMedals, summerGolds, summerCountries, summerGames);
+        medalLine('chart5', 'all games', countries, tgolds, tsilvers, tbronzes);
+        medalLine('chart5-summer', 'summer games', summerCountries, summerTGolds, summerTSilvers, summerTBronzes);
+        medalLine('chart5-winter', 'winter games', winterCountries, winterTGolds, winterTSilvers, winterTBronzes);
     });
 }
 
@@ -1066,18 +1169,18 @@ function gdpPopCombo(selectDiv, years, population, gdp, perCapitaGdp){
     });
 }
 
-function gdpCapMedalScatter(selectDiv, winterPerCapitaGdp, winterMedals, winterGolds, winterCountries, winterGames, summerPerCapitaGdp, summerMedals, summerGolds, summerCountries, summerGames) {
+function gdpCapMedalScatter(selectDiv, type, winterPerCapitaGdp, winterMedals, winterGolds, winterCountries, winterGames, summerPerCapitaGdp, summerMedals, summerGolds, summerCountries, summerGames) {
     Highcharts.chart(selectDiv, {
         chart: {
             type: 'scatter'
         },
         title: {
-            text: 'Per Capita GDP vs Medal Count by Season and Medal Type'
+            text: `${type} vs Medal Count by Season and Medal Type`
         },
         xAxis: {
             title: {
                 enabled: true,
-                text: 'GDP per Capita ($)'
+                text: `${type}`
             },
             startOnTick: true,
             endOnTick: true,
@@ -1152,6 +1255,63 @@ function gdpCapMedalScatter(selectDiv, winterPerCapitaGdp, winterMedals, winterG
     });
 }
 
+function medalLine(selectDiv, type, games, tgolds, tsilvers, tbronzes ){
+
+    Highcharts.chart(selectDiv, {
+        chart: {
+            type: 'area'
+        },
+        title: {
+            text: `Team Medals Over Time, (${type})`
+        },
+        // subtitle: {
+        //     text: 'Source: Wikipedia.org'
+        // },
+        xAxis: {
+            categories: games,
+            tickmarkPlacement: 'on',
+            title: {
+                enabled: false
+            }
+        },
+        yAxis: {
+            title: {
+                text: 'Medals'
+            },
+            // labels: {
+            //     formatter: function () {
+            //         return this.value / 1000;
+            //     }
+            // }
+        },
+        tooltip: {
+            split: true,
+            // valueSuffix: ' millions'
+        },
+        plotOptions: {
+            area: {
+                stacking: 'normal',
+                lineColor: '#666666',
+                lineWidth: 1,
+                marker: {
+                    lineWidth: 1,
+                    lineColor: '#666666'
+                }
+            }
+        },
+        series: [{
+            name: 'Golds',
+            data: tgolds
+        }, {
+            name: 'Silvers',
+            data: tsilvers
+        }, {
+            name: 'Bronzes',
+            data: tbronzes
+        }
+    ]
+    });
+}
 // array transformation functions
 function divideArraysTimesHundred (numerator, denominator) {
     var array = []
