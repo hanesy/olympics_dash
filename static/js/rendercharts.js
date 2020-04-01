@@ -27,7 +27,10 @@ function stackedOlympianBar(selectDiv, title, x_axis, golds, silvers, bronzes, n
         xAxis: 
         {
             categories: x_axis,
-            crosshair: true
+            crosshair: true,
+            labels: {
+                rotation: 270
+            }
         },
     
         yAxis: 
@@ -309,6 +312,9 @@ function olympianLine(selectDiv, title, x_axis, medalist_perc){
             tickmarkPlacement: 'on',
             title: {
                 enabled: false
+            },
+            labels: {
+                rotation: 270
             }
         },
     
@@ -369,6 +375,9 @@ function medalArea(selectDiv, title, x_axis, tgolds, tsilvers, tbronzes ){
             tickmarkPlacement: 'on',
             title: {
                 enabled: false
+            },
+            labels: {
+                rotation: 270
             }
         },
         yAxis: {
@@ -634,7 +643,10 @@ function olympianMedalBar(selectDiv, title, x_axis,medalist_perc){
         xAxis: 
         {
             categories: x_axis,
-            crosshair: true
+            crosshair: true,
+            labels: {
+                rotation: 270
+            }
         },
     
         yAxis: {
@@ -674,7 +686,10 @@ function stackedEventBar(selectDiv, title, x_axis, golds, silvers, bronzes){
         xAxis: 
         {
             categories: x_axis,
-            crosshair: true
+            crosshair: true,
+            labels: {
+                rotation: 270
+            }
         },
     
         yAxis: 

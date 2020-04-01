@@ -182,8 +182,6 @@ function defaultOneofTwo(){
         stackedOlympianBar('summer-olympians', 'Summer Olympians Over Time', summerGames, summerGolds, summerSilvers, summerBronzes, summerNonmedals);
         stackedOlympianBar('winter-olympians', 'Winter Olympians Over Time', winterGames, winterGolds, winterSilvers, winterBronzes, winterNonmedals);
         stackedOlympianBar('countries', 'Placeholder for # of Participating Countries by Event');
-        gdpCapMedalScatter('scatter', 'GDP', winterGdp, winterMedals, winterGolds, winterCountries, winterGames, summerGdp, summerMedals, summerGolds, summerCountries, summerGames);
-        
         olympianLine('summer-olympians-perc', '% Medalists Over Time', summerGames, summer_medalist_perc);
         olympianLine('winter-olympians-perc', '% Medalists Over Time', winterGames, winter_medalist_perc);
         medalArea('summer-events', 'Summer Event Medals Over Time', summerGames, summerTGolds, summerTSilvers, summerTBronzes);
