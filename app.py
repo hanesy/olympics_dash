@@ -25,6 +25,16 @@ def index():
     """Return the homepage."""
     return render_template("index.html")
 
+@app.route("/countries")
+def countries():
+    """Return the homepage."""
+    return render_template("countries.html")
+
+@app.route("/events")
+def events():
+    """Return the homepage."""
+    return render_template("events.html")
+
 @app.route("/events_final_country/")
 def events_final_country():
 
