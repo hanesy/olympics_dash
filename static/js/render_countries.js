@@ -41,7 +41,7 @@ function createDefault(){
 }
 
 function defaultOneofTwo(){
-    var searchLink = "events_final_country/WLD"
+    var searchLink = "/events_final_country/WLD"
     d3.json(searchLink, function(data){
         console.log(data);
 
@@ -191,7 +191,7 @@ function defaultOneofTwo(){
 }
 
 function defaultTwoofTwo(){
-    var searchLink = "events_final_country/"
+    var searchLink = "/events_final_country/"
     d3.json(searchLink, function(data){
         console.log(data);
 
@@ -449,3 +449,14 @@ function countryFilteredCharts(searchLink) {
 }
 // Initialize Website
 init();
+
+
+d3.json("/events_final_country/USA", function(data)
+{
+console.log(data);
+});
+
+d3.json("/events_final_country/", function(data)
+{
+console.log(data);
+});

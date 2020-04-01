@@ -760,3 +760,4 @@ function stackedEventBar(selectDiv, title, x_axis, golds, silvers, bronzes){
     });
 }
 
+

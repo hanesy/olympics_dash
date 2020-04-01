@@ -44,7 +44,7 @@ function createDefault(){
 }
 
 function defaultOne(){
-    var searchLink = "events_final_country"
+    var searchLink = "/events_final_country/"
     d3.json(searchLink, function(data){
         console.log(data);
 
