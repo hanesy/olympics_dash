@@ -81,10 +81,10 @@ function defaultOne(){
         data.forEach(function(d) {
 
             var country = d.Country;
-            countries.push(country);
+
 
             if (country == "World"){
-
+            countries.push(country);
             }
             else {
 
@@ -168,7 +168,7 @@ function defaultOne(){
 
         stackedOlympianBar('olympians-country', 'Olympians by Country');
         olympianMedalBar('medalist-bar', '% Medalist by Country');
-        stackedEventBar('events-country', 'Event Medals Over Time');
+        stackedEventBar('events-country', 'Event Medals by Country');
         gdpCapMedalScatter('scatter', 'GDP and Medal Count', winterGdp, winterMedals, winterCountries, winterGames, summerGdp, summerMedals, summerCountries, summerGames);
     });
 }
@@ -179,6 +179,8 @@ function eventFilteredCharts(searchLink) {
         console.log(data);
         var years = [];
         var games = [];
+        var summerGames=[];
+        var winterGames=[];
 
         var countries = [];
         var summerCountries = [];
@@ -224,10 +226,9 @@ function eventFilteredCharts(searchLink) {
         data.forEach(function(d) {
 
             var country = d.Country;
-            countries.push(country);
 
             if (country == "World"){
-
+            countries.push(country);
             }
             else {
             var year = d.Year;
@@ -335,7 +336,7 @@ function eventFilteredCharts(searchLink) {
 
         stackedOlympianBar('olympians-country', 'Olympians by Country', countries, golds, silvers, bronzes, nonmedals);
         olympianMedalBar('medalist-bar', '% Medalist by Country', countries, medalist_perc);
-        stackedEventBar('events-country', 'Event Medals Over Time', countries, golds, silvers, bronzes);
+        stackedEventBar('events-country', 'Event Medals by Country', countries, tgolds, tsilvers, tbronzes);
         gdpCapMedalScatter('scatter', 'GDP and Medal Count',winterGdp, winterMedals, winterCountries, winterGames, summerGdp, summerMedals, summerCountries, summerGames);
     });
 }
