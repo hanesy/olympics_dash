@@ -51,7 +51,6 @@ def events_final_country():
         Events_Final.Country,
         Events_Final.GDP,
         Events_Final.Population,
-        Events_Final.GDP_per_capita,
         Events_Final.No_olympians,
         Events_Final.Bronze_athlete,
         Events_Final.Gold_athlete,
@@ -80,16 +79,15 @@ def events_final_country():
         combined["Country"] = result[6]
         combined["GDP"] = result[7]
         combined["Population"] = result[8]
-        combined["GDP_per_capita"] = result[9]
-        combined["No_olympians"] = result[10]
-        combined["Bronze_athlete"] = result[11]
-        combined["Gold_athlete"] = result[12]
-        combined["Silver_athlete"] = result[13]
-        combined["Total_Medals_athlete"] = result[14]
-        combined["Bronze_team"] = result[15]
-        combined["Gold_team"] = result[16]
-        combined["Silver_team"] = result[17]
-        combined["Total_Medals_team"] = result[18]
+        combined["No_olympians"] = result[9]
+        combined["Bronze_athlete"] = result[10]
+        combined["Gold_athlete"] = result[11]
+        combined["Silver_athlete"] = result[12]
+        combined["Total_Medals_athlete"] = result[13]
+        combined["Bronze_team"] = result[14]
+        combined["Gold_team"] = result[15]
+        combined["Silver_team"] = result[16]
+        combined["Total_Medals_team"] = result[17]
 
         events_final_data.append(combined)
    
@@ -111,7 +109,6 @@ def events_final_country_noc(NOC):
         Events_Final.Country,
         Events_Final.GDP,
         Events_Final.Population,
-        Events_Final.GDP_per_capita,
         Events_Final.No_olympians,
         Events_Final.Bronze_athlete,
         Events_Final.Gold_athlete,
@@ -140,16 +137,15 @@ def events_final_country_noc(NOC):
         combined["Country"] = result[6]
         combined["GDP"] = result[7]
         combined["Population"] = result[8]
-        combined["GDP_per_capita"] = result[9]
-        combined["No_olympians"] = result[10]
-        combined["Bronze_athlete"] = result[11]
-        combined["Gold_athlete"] = result[12]
-        combined["Silver_athlete"] = result[13]
-        combined["Total_Medals_athlete"] = result[14]
-        combined["Bronze_team"] = result[15]
-        combined["Gold_team"] = result[16]
-        combined["Silver_team"] = result[17]
-        combined["Total_Medals_team"] = result[18]
+        combined["No_olympians"] = result[9]
+        combined["Bronze_athlete"] = result[10]
+        combined["Gold_athlete"] = result[11]
+        combined["Silver_athlete"] = result[12]
+        combined["Total_Medals_athlete"] = result[13]
+        combined["Bronze_team"] = result[14]
+        combined["Gold_team"] = result[15]
+        combined["Silver_team"] = result[16]
+        combined["Total_Medals_team"] = result[17]
 
         events_final_data.append(combined)
         
@@ -171,7 +167,6 @@ def events_final_games(Game_Label):
         Events_Final.Country,
         Events_Final.GDP,
         Events_Final.Population,
-        Events_Final.GDP_per_capita,
         Events_Final.No_olympians,
         Events_Final.Bronze_athlete,
         Events_Final.Gold_athlete,
@@ -200,16 +195,15 @@ def events_final_games(Game_Label):
         combined["Country"] = result[6]
         combined["GDP"] = result[7]
         combined["Population"] = result[8]
-        combined["GDP_per_capita"] = result[9]
-        combined["No_olympians"] = result[10]
-        combined["Bronze_athlete"] = result[11]
-        combined["Gold_athlete"] = result[12]
-        combined["Silver_athlete"] = result[13]
-        combined["Total_Medals_athlete"] = result[14]
-        combined["Bronze_team"] = result[15]
-        combined["Gold_team"] = result[16]
-        combined["Silver_team"] = result[17]
-        combined["Total_Medals_team"] = result[18]
+        combined["No_olympians"] = result[9]
+        combined["Bronze_athlete"] = result[10]
+        combined["Gold_athlete"] = result[11]
+        combined["Silver_athlete"] = result[12]
+        combined["Total_Medals_athlete"] = result[13]
+        combined["Bronze_team"] = result[14]
+        combined["Gold_team"] = result[15]
+        combined["Silver_team"] = result[16]
+        combined["Total_Medals_team"] = result[17]
 
         events_final_data.append(combined)
    
