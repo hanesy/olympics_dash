@@ -174,7 +174,7 @@ function olympianPie(selectDiv, title, nonmedals, golds, silvers, bronzes, winte
                 minPointSize: 10,
                 innerSize: '20%',
                 zMin: 0,
-                name: 'Total Medal Count',
+                name: '% All-Time',
                 data: 
                 [
                     {
@@ -210,7 +210,7 @@ function olympianPie(selectDiv, title, nonmedals, golds, silvers, bronzes, winte
             minPointSize: 10,
             innerSize: '20%',
             zMin: 0,
-            name: 'Winter Medal Count',
+            name: '% All-Time',
             data: 
             [
                 {
@@ -246,7 +246,7 @@ function olympianPie(selectDiv, title, nonmedals, golds, silvers, bronzes, winte
             minPointSize: 10,
             innerSize: '20%',
             zMin: 0,
-            name: 'Winter Medal Count',
+            name: '% All-Time',
             data: 
             [
                 {
