@@ -1,3 +1,49 @@
+/* Nav Bar CSS */
+.navbar {
+  background: #B5AF87;
+  font-size: 18px;
+}
+
+/* buttons */
+/* Emphasis */
+.btn {
+  background: #8F8684;
+  color: white;
+  border-color: #324759;
+  margin: 5px;
+}
+
+/* Dagney's CSS Below */
+
+/* .homeButton {
+  background-color: green; 
+  border: none;
+  color: black;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  border-radius: 10px;
+} */
+
+/* set style for navigation bar buttons */
+/* .navButton {
+  background-color: green; 
+  border:none;
+  color: green;
+  padding: 20px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+} */
+
+/* .nav-item {
+  color: green;
+} */
+
 .center {
     display: block;
     margin-left: auto;
@@ -24,33 +70,4 @@
 
 .body {
   font-family: "HelveticaNeueExtended";
-}
-
-.homeButton {
-  background-color: green; /* Green */
-  border: none;
-  color: black;
-  padding: 15px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  border-radius: 10px;
-}
-
-/* set style for navigation bar buttons */
-.navButton {
-  background-color: green; /* Green */
-  border:none;
-  color: green;
-  padding: 20px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-
-}
-
-.nav-item {
-  color: green;
 }
