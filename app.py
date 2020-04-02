@@ -36,6 +36,16 @@ def events():
     """Return the homepage."""
     return render_template("events.html")
 
+@app.route("/data")
+def data():
+    """Return the homepage."""
+    return render_template("data.html")
+
+@app.route("/map")
+def map():
+    """Return the homepage."""
+    return render_template("map.html")
+
 @app.route("/events_final_country/")
 def events_final_country():
 

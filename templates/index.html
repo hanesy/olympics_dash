@@ -29,6 +29,12 @@
         <!-- Plotly -->
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+ 
+        <!-- Leaflet JavaScript -->
+        <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+        <script src="jquery-2.1.1.min.js"></script>
+
     </head>
 
     <body class="body">
@@ -75,69 +81,30 @@
             <li class="nav-item">
             <a class="nav-link" href="{{ url_for('events') }}"> <span class="material-icons"> event </span> Data by Event </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('data') }}"> <span class="material-icons"> cloud_download </span> Download Data </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('map') }}"> <span class="material-icons"> cloud_download </span> Map </a>
+            </li>
         </ul>
     </div>   
 </nav>
-        <!--
-
-         -->
-            <!-- * Contains a dropdown on the right of the navbar named "Plots" which provides links to each individual visualization page. -->
-            <!-- 
         
-                <li class="nav-item">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                </li> -->
-        
-                <!-- * Contains a dropdown on the right of the navbar named "Plots" which provides links to each individual visualization page. -->
-                <!-- <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Plots
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="plot_latvstemp.html">Temperature vs Latitude</a>
-                    <a class="dropdown-item" href="plot_latvshumidity.html">Humidity vs. Latitude</a>
-                    <a class="dropdown-item" href="plot_latvscloud.html">Cloudiness vs. Latitude</a>
-                    <a class="dropdown-item" href="plot_latvswindspeed.html">Wind Speed vs. Latitude</a>
-                  </div>
-                </li> -->
-                <!-- * Provides two more links on the right: "Comparisons" which links to the comparisons page, and "Data" which links to the data page. -->
-                <!-- <li class="nav-item active">
-                  <a class="nav-link" href="comparisons.html">Comparisons</a>
-                </li>
-        
-                <li class="nav-item">
-                  <a class="nav-link" href="data.html">Data</a>
-                </li>
- 
-          </nav> -->
 
             
         <div class="row topBanner">
             <div class="col-md-2"></div>
             <div class="col-md-4"><h1 class=title>Olympics Dashboard</h1></div>
+        
             <div class="col-md-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Olympic_rings_without_rims.svg" alt="Olympic Rings">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Olympic_rings_without_rims.svg" alt="Olympic Rings">
             </div>
+      </div>
 
+         
             
-            <div class="col-md-2" style="float: right;">
-                <div class="row">
-                    <a class="btn" href="https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results/data#" target="_blank" role="button">Olympics Data</a>
-
-                    <!-- <a href="/Users/dagneycooke/Desktop/Homework/Project 2/project_2/Resources/athlete_events.csv" download>Download Olympics Data</a> -->
-                </div>
-                <div class="row">
-                    <a class="btn" href="https://databank.worldbank.org/reports.aspx?source=2&series=SP.POP.TOTL&country=" target="_blank" role="button">Population Data</a>
-                </div>
-                <div class="row">
-                    <a class="btn" href="https://databank.worldbank.org/reports.aspx?source=2&series=NY.GDP.MKTP.CD&country=#" target="_blank" role="button">GDP Data</a>
-                    <!-- <a href="/Users/dagneycooke/Desktop/Homework/Project 2/project_2/Resources/populatio_gdp.csv" download>Download GDP Data</a> -->
-                </div>
-
-            </div>
-            
-            
-        </div>
+        
         <!-- <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-2">

@@ -66,42 +66,28 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="{{ url_for('index') }}"> <span class="material-icons"> home </span> Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('countries') }}"> <span class="material-icons"> place </span> Data by Country</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
             <a class="nav-link" href="{{ url_for('events') }}"> <span class="material-icons"> event </span> Data by Event </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('data') }}"> <span class="material-icons"> cloud_download </span> Download Data </a>
+            </li>
         </ul>
-    </div>   
+    </div>    
 </nav>
 
         <div class="row topBanner">
             <div class="col-md-2"></div>
-            <div class="col-md-4"><h1 class=title>Olympics Dashboard EVENTS</h1></div>
+            <div class="col-md-4"><h1 class=title>Olympic Data by Event</h1></div>
             <div class="col-md-4">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Olympic_rings_without_rims.svg" alt="Olympic Rings">
             </div>
-            <div class="col-md-2" style="float: right;">
-                <div class="row">
-                    <a class="btn" href="https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results/data#" target="_blank" role="button">Olympics Data</a>
-
-                    <!-- <a href="/Users/dagneycooke/Desktop/Homework/Project 2/project_2/Resources/athlete_events.csv" download>Download Olympics Data</a> -->
-                </div>
-                <div class="row">
-                    <a class="btn" href="https://databank.worldbank.org/reports.aspx?source=2&series=SP.POP.TOTL&country=" target="_blank" role="button">Population Data</a>
-                </div>
-                <div class="row">
-                    <a class="btn" href="https://databank.worldbank.org/reports.aspx?source=2&series=NY.GDP.MKTP.CD&country=#" target="_blank" role="button">GDP Data</a>
-                    <!-- <a href="/Users/dagneycooke/Desktop/Homework/Project 2/project_2/Resources/populatio_gdp.csv" download>Download GDP Data</a> -->
-                </div>
-
-            </div>
-            
-            
         </div>
         <div class="row">
             <div class="col-md-2"></div>
