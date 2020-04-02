@@ -760,4 +760,70 @@ function stackedEventBar(selectDiv, title, x_axis, golds, silvers, bronzes){
     });
 }
 
+function countryBar(selectDiv, title, x_axis, countries){
+    Highcharts.chart(selectDiv, {
 
+        title: 
+        {
+            text: title
+        },
+        
+        xAxis: 
+        {
+            categories: x_axis,
+            crosshair: true,
+            labels: {
+                rotation: 270
+            }
+        },
+    
+        yAxis: 
+        [{ // Primary yAxis    
+            min: 0,
+            labels: 
+            {
+                style: 
+                {
+                    color: chartColors[3]
+                }
+            },
+            title: 
+            {
+                text: 'Olympians',
+                style: 
+                {
+                    color: chartColors[3]
+                }
+            }
+        }],
+    
+        plotOptions: 
+        {
+            column: 
+            {
+                stacking: 'normal'
+            }
+        },
+        
+        tooltip: {
+            shared: true
+        },
+
+        legend: {
+            reversed: true
+        },
+
+
+        series: 
+        [
+            {
+                type: 'column',
+                yAxis: 0,
+                name: 'Participating Countries',
+                data: countries, 
+                color: chartColors[2],
+                stack: 'medalist'
+            }
+]
+    });
+}

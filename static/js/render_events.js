@@ -84,11 +84,9 @@ function defaultOne(){
 
 
             if (country == "World"){
-            countries.push(country);
+
             }
             else {
-
-            var country = d.Country;
             countries.push(country);
 
             var olympian = d.No_olympians
@@ -228,7 +226,7 @@ function eventFilteredCharts(searchLink) {
             var country = d.Country;
 
             if (country == "World"){
-            countries.push(country);
+
             }
             else {
             var year = d.Year;
@@ -237,7 +235,6 @@ function eventFilteredCharts(searchLink) {
             var game = d.Game_Label;
             games.push(game);
 
-            var country = d.Country;
             countries.push(country);
 
             var olympian = d.No_olympians

@@ -88,7 +88,7 @@ function defaultOneofTwo(){
             var year = d.Year;
             years.push(year);
 
-            var game = d.Game_Label;
+            var game = d.Chart_Label;
             games.push(game);
 
             var olympian = d.No_olympians
@@ -181,7 +181,6 @@ function defaultOneofTwo(){
 
         stackedOlympianBar('summer-olympians', 'Summer Olympians Over Time', summerGames, summerGolds, summerSilvers, summerBronzes, summerNonmedals);
         stackedOlympianBar('winter-olympians', 'Winter Olympians Over Time', winterGames, winterGolds, winterSilvers, winterBronzes, winterNonmedals);
-        stackedOlympianBar('countries', 'Placeholder for # of Participating Countries by Event');
         olympianLine('summer-olympians-perc', '% Medalists Over Time', summerGames, summer_medalist_perc);
         olympianLine('winter-olympians-perc', '% Medalists Over Time', winterGames, winter_medalist_perc);
         medalArea('summer-events', 'Summer Event Medals Over Time', summerGames, summerTGolds, summerTSilvers, summerTBronzes);
@@ -334,7 +333,7 @@ function countryFilteredCharts(searchLink) {
             var year = d.Year;
             years.push(year);
 
-            var game = d.Game_Label;
+            var game = d.Chart_Label;
             games.push(game);
 
             var country = d.Country;
@@ -437,7 +436,6 @@ function countryFilteredCharts(searchLink) {
 
         stackedOlympianBar('summer-olympians', 'Summer Olympians Over Time', summerGames, summerGolds, summerSilvers, summerBronzes, summerNonmedals);
         stackedOlympianBar('winter-olympians', 'Winter Olympians Over Time', winterGames, winterGolds, winterSilvers, winterBronzes, winterNonmedals);
-        stackedOlympianBar('countries', 'Placeholder for # of Participating Countries by Event');
         olympianLine('summer-olympians-perc', '% Medalists Over Time', summerGames, summer_medalist_perc);
         olympianLine('winter-olympians-perc', '% Medalists Over Time', winterGames, winter_medalist_perc);
         medalArea('summer-events', 'Summer Event Medals Over Time', summerGames, summerTGolds, summerTSilvers, summerTBronzes);
