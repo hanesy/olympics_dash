@@ -29,38 +29,19 @@
         <!-- Plotly -->
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
+        <!-- Leaflet CSS -->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
- 
         <!-- Leaflet JavaScript -->
         <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
-        <script src="static/js/jquery-2.1.1.min.js"></script>
+        <script src="/static/js/jquery-2.1.1.min.js"></script>
+        <style>
+            #map{ height: 500px; width:1000px; margin-left:auto; margin-right:auto; }
+        </style>
 
     </head>
 
     <body class="body">
-        <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> -->
 
-            <!-- home button -->
-            <!-- <a class="homeButton" href="{{ url_for('index') }}">Home</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('countries') }}">Country Info</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('events') }}">Event Info</a>
-                    </li>
-                </ul>
-            </div>
-        </nav> -->
-
-<!-- Heain's Nav Bar Starts Here -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="{{ url_for('index') }}"> <img src="/static/images/rings.png" height = '40' alt=""> </a>
 
@@ -84,9 +65,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('data') }}"> <span class="material-icons"> cloud_download </span> Download Data </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('map') }}"> <span class="material-icons"> cloud_download </span> Map </a>
-            </li>
         </ul>
     </div>   
 </nav>
@@ -102,72 +80,78 @@
             </div>
       </div>
 
-         
-            
-        
-        <!-- <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-2">
-                <p>Filter by Country</p>
-                <select id="selCountry"  onchange="countryChanged(this.value)"></select>
-                <br>
-                <br>
-            </div>
-            <div class="col-md-3">
-                <p>Filter by Event</p>
-                <select id="selEvent" onchange="eventChanged(this.value)">
-                </select>
-            </div>
-
-        </div> -->
-
+      
         <div class="row">
             <!-- <div class="col-md-3">
                 <a class="twitter-timeline" href="https://twitter.com/Olympics?ref_src=twsrc%5Etfw">Tweets by Olympics</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div> -->
-            <div class="col-md-4">
-                <div class="row">
-                    <div id="countries"></div>
-                </div>
-
-            </div>
-            <!-- <div class="col-md-4">
-                <div class="row">
-                    <div id="chart3"></div>
-                </div>
-
-                <div class="row">
-                    <div id="chart1-summer"></div>
-                </div>
-                <div class="row">
-                    <div id="chart5-summer"></div>
-                </div>
-                <div class="row">
-                    <div id="chart4-gdp"></div>
-                </div>
-                <div class="row">
-                    <div id="map"></div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="row">
-                    <div id="chart1-winter"></div>
-                </div>
-                <div class="row">
-                    <div id="chart5-winter"></div>
-                </div>
-                <div class="row">
-                    <div id="chart4-pop"></div>
-                </div>
-                <div class="row">
-                    <div id="chart1-pie"></div>
-                </div>
-            </div>             -->
-
-
-            </div>
-            
         </div>
+
+        <div class="row" style="background-color:lightgrey">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <h4>Project Intro</h4>
+                </div>  
+                <div class="row">
+                    <p>Our project looks at how population & GDP affect how well countries perform at the Olympics.  We examined all Olympic Games, from 1960 to today.  </p>
+                    <p>Things to note:
+                        <ul>
+                            <li>Country names and boundries have changed in the last sixty years.  As an example: if you are looking for the full Olympic of a country that was renamed like Russia, you will need to look for both the USSR and Russia.
+                            </li>
+                            <li>Not all countries have competed in both the summer and winter olympics, and thus you may seem some "blank" graphs due to lack of participation.</li>
+                            <li>The most recent Summer Olympics had 306 events, with a total of 918 medals.  In comparison, the most recent Winter Olympics had only 102 events, the first Winter Olympics to surpass 100 events.  Keep this in mind when comparing Summer numbers to Winter numbers.</li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8">
+                <h4>World Map</h4>
+            </div>
+        </div>
+        <div class="mapFilter">
+            Year: 
+            <select onchange="changeYear(this)">
+                <option value="">Select Year</option>
+                <option value="1960">1960</option>
+                <option value="1964">1964</option>
+                <option value="1968">1968</option>
+                <option value="1972">1972</option>
+                <option value="1976">1976</option>
+                <option value="1980">1980</option>
+                <option value="1984">1984</option>
+                <option value="1988">1988</option>
+                <option value="1992">1992</option>
+                <option value="1994">1994</option>
+                <option value="1996">1996</option>
+                <option value="1998">1998</option>
+                <option value="2000">2000</option>
+                <option value="2002">2002</option>
+                <option value="2004">2004</option>
+                <option value="2006">2006</option>
+                <option value="2008">2008</option>
+                <option value="2010">2010</option>
+                <option value="2012">2012</option>
+                <option value="2014">2014</option>
+                <option value="2016">2016</option>
+            </select>
+        
+            <!-- Season:
+            <select onchange="changeSeason(this)">
+                <option value="">Select All</option>
+                <option value="Summer">Summer</option>
+                <option value="Winter">Winter</option>
+            </select> -->
+        </div>
+            
+        <div id="map"></div>
+            
 
 
     
@@ -176,6 +160,11 @@
          <script type="text/javascript" src="/static/js/functions.js"></script>
          <script type="text/javascript" src="/static/js/rendercharts.js"></script>
          <script type="text/javascript" src="/static/js/render_index.js"></script>
+         <!-- json code -->
+        <script type="text/javascript" src="/static/json/medal_counts.json"></script>
+        <script type="text/javascript" src="/static/json/countries.geo.json"></script>
+        <!-- Our JavaScript -->
+        <script type="text/javascript" src="/static/js/olympic_map.js"></script>
 
     </body>
 </html>

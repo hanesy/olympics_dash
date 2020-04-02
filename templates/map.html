@@ -7,11 +7,11 @@
   <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
   <script src="/static/js/jquery-2.1.1.min.js"></script>
   <style>
-    #map{ height: 100% }
+    #map{ height: 500px; width: 500px; }
   </style>
 </head>
 <body>
-  <div style="margin-bottom: 10px;">
+  <div style="margin-bottom:10px">
     Year: 
     <select onchange="changeYear(this)">
       <option value="">Select Year</option>
@@ -45,7 +45,8 @@
       <option value="Winter">Winter</option>
     </select>
   </div>
-  <div id="map"></div>
+
+      <div id="map"></div>
 
   <!-- json code -->
   <script type="text/javascript" src="/static/json/medal_counts.json"></script>
