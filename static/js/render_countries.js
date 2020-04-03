@@ -17,6 +17,7 @@ function init()
             }
         })
         createDropDownCountry("#selCountry", countries, nocs);
+        d3.select("#selCountry").property("value", "WLD");
     });
     createDefault();
 };

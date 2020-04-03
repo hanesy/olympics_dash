@@ -21,6 +21,7 @@ function init () {
         });;
 
     countryBar("countries", "Participating Countries by Game", games, countries_count);
+    d3.select("#selEvent").property("value", "World");
 
    });
 }
