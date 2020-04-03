@@ -124,7 +124,7 @@ def events_final_country_noc(NOC):
         Events_Final.Total_Medals_team
         ]
 
-    results = session.query(*sel).filter(Events_Final.NOC == NOC).all()
+    results = session.query(*sel).filter(Events_Final.NOC == NOC).order_by(Events_Final.Country).all()
 
     session.close ()
 
@@ -182,7 +182,7 @@ def events_final_games(Game_Label):
         Events_Final.Total_Medals_team
         ]
 
-    results = session.query(*sel).filter(Events_Final.Game_Label == Game_Label).all()
+    results = session.query(*sel).filter(Events_Final.Game_Label == Game_Label).order_by(Events_Final.Country).all()
 
     session.close ()
 
