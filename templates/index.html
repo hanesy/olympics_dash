@@ -68,15 +68,15 @@
                 </ul>
             </div>   
         </nav>
-        
-
             
         <div class="row topBanner">
             <div class="col-md-4 text-right">
                 <img src="/static/images/rings.png" alt="Olympic Rings" style="height:150px">
             </div>
-            <div class="col-md-4-center"><h1 class=title>Olympics Dashboard</h1></div>
-            <div class="col-md-4"></div>
+            <div class="col-md-4 text-center"><h1 class=title>Olympics Dashboard</h1></div>
+            <div class="col-md-4 text-left">
+                <img src="/static/images/rings.png" alt="Olympic Rings" style="height:150px">
+            </div>
 
         </div>
 
@@ -85,14 +85,10 @@
             <div class="col-md-2">
             </div>
             <div class="col-md-8 chartPadding" style="padding:2%">
-                <div class="row">
-                    <h4> Introduction </h4></b>
-                </div>  
-                <div class="row">
+                <h4><b> Introduction </h4></b>
                     <p>This dashboard was developed to review the relevance of population & GDP to countries' performances at the Olympics.</p>
                     <p>In doing this, we decided to choose a "modern" subset of Olympic Games, ranging from 1960 to 2016 to align with our economic and demographic data. As there is a larger breadth of competing countries in this range and a better record of population and wealth stastics.</p>
-                    <br>
-                    <br>
+
                     <b><p>Interesting Fact:</p></b>
                     <ul>
                         <li>The most recent Summer Olympics had 306 events, with a total of 918 medals.  In comparison, the most recent Winter Olympics had only 102 events, the first Winter Olympics to surpass 100 events.  Keep this in mind when comparing Summer numbers to Winter numbers.</li>
@@ -104,16 +100,21 @@
                             <li>Not all countries have competed in both the summer and winter olympics, and thus you may see some "blank" graphs due to non-participation.</li>
                             <li>Winter and Summer Olympics were held in the same year until 1992, until they split into separate four year cycles.  The next Winter Olympics was held in 1994.</li>
                         </ul>
-                </div>
+            </div>
+            <div class="col-md-2">
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-2">
-
+            <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+                <h4 style="text-align:center;">World Map - Event Medals</h4>
+            </div>  
+            <div class="col-sm-6 col-md-6 col-lg-6 text-center">          
             </div>
-            <div class="col-md-8">
-                <!--Create DropDown filter for map -->
+        </div>
+
+        <div class = "row">
+            <div class="col-sm-6 col-md-6 col-lg-6 text-center">
                 <div class="mapFilter">
                     Select Game: 
                     <select onchange="changeYear(this)">
@@ -151,22 +152,19 @@
                     </select>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            
+            <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+                
+            </div>
         </div>
 
         <div class="row" style="margin-left:15px;">
             <div class="col-sm-6 col-md-6 col-lg-6">
-                <h4 style="text-align:center;">World Map - Event Medals</h4>
                 <div class = 'chart' id="map"></div>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6" style="">
                 <div class = 'chart' id="countries" style="height:800px "></div>
             </div>
         </div>
-
-        
 
          <!-- JS -->
          <script type="text/javascript" src="/static/js/functions.js"></script>

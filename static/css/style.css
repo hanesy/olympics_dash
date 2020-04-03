@@ -44,12 +44,11 @@
 }
 
 .body {
-  font-family: "HelveticaNeueExtended";
+  font-family: "Lucida Sans Unicode";
 }
 
 .mapFilter {
-  margin-left: 300px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .chartGroupTitles {
@@ -58,7 +57,7 @@
 }
 
 .chartPadding {
-  background-color:lightgrey; 
+  background-color:#D9D5D2; 
   padding:1%; 
   border-color:white; 
   border:1%; 
