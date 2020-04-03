@@ -4,16 +4,16 @@ let ajax_progress;
 let current_country = '';
 
 let filter_year = "";
-let filter_season = "";
+// let filter_season = "";
 
 // Create function for year change
 function changeYear(element) {
     filter_year = element.value;
 }
 // Create function for season (winter or summer)
-function changeSeason(element) {
-    filter_season = element.value;
-}
+// function changeSeason(element) {
+//     filter_season = element.value;
+// }
 
 $(document).ready(function(){
     console.log(medal_data);
@@ -78,28 +78,30 @@ $(document).ready(function(){
 
                     let bronze = 0;
                     let gold = 0;
-                    let no_medal = 0;
+                    // let no_medal = 0;
                     let silver = 0;
                     let total = 0;
 
                     for( var key in medal_data.NOC ) {
                     if (medal_data.NOC[key] == found.id) {
-                        if (filter_year != "" && filter_year != medal_data.Year[key]) {
-                        continue;
-                        }
-                        if (filter_season != "" && filter_season != medal_data.Season[key]) {
+                        if (filter_year != "" && filter_year != medal_data.Game_Label[key]) {
                         continue;
                         }
 
-                        bronze += medal_data.Bronze[key];
-                        gold += medal_data.Gold[key];
-                        no_medal += medal_data.No_medal[key];
-                        silver += medal_data.Silver[key];
-                        total += medal_data.Total_Medals[key];
+                        bronze += medal_data.Bronze_team[key];
+                        gold += medal_data.Gold_team[key];
+                        // no_medal += medal_data.No_medal[key];
+                        silver += medal_data.Silver_team[key];
+                        total += medal_data.Total_Medals_team[key];
                     }
                     }
 
-                    popup.setContent('<strong style="font-size:14px;">' + current_country + '</strong><br><strong>Gold Medal: </strong>' + gold + '<br><strong>Silver Medal: </strong>' + silver + '<br><strong>Bronze Medal: </strong>' + bronze + '<br><strong>No Medal: </strong>' + no_medal + '<br><strong>Total Medals: </strong>' + total);
+                    popup.setContent('<strong style="font-size:14px;">' + current_country +
+                                     '</strong><br><strong>Gold Medal: </strong>' + gold + 
+                                     '<br><strong>Silver Medal: </strong>' + silver + 
+                                     '<br><strong>Bronze Medal: </strong>' + bronze + 
+                                    //  '<br><strong>No Medal: </strong>' + no_medal +
+                                     '<br><strong>Total Medals: </strong>' + total);
                 }
                 }
                 
