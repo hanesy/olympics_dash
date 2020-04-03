@@ -33,39 +33,39 @@
 
     <body class="body">
    
-<nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="{{ url_for('index') }}"> <img src="/static/images/rings.png" height = '40' alt=""> </a>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="{{ url_for('index') }}"> <img src="/static/images/rings.png" height = '40' alt=""> </a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <!-- icons from here: https://material.io/resources/icons/?icon=event&style=baseline -->
+            <!-- icons from here: https://material.io/resources/icons/?icon=event&style=baseline -->
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('index') }}"> <span class="material-icons"> home </span> Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('countries') }}"> <span class="material-icons"> place </span> Data by Country</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('games') }}"> <span class="material-icons"> event </span> Data by Game </a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('data') }}"> <span class="material-icons"> cloud_download </span> Download Data </a>
-            </li>
-        </ul>
-    </div>    
-</nav>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}"> <span class="material-icons"> home </span> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('countries') }}"> <span class="material-icons"> place </span> Data by Country</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('games') }}"> <span class="material-icons"> event </span> Data by Game </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('data') }}"> <span class="material-icons"> cloud_download </span> Download Data </a>
+                    </li>
+                </ul>
+            </div>    
+        </nav>
        
         <div class="row topBanner">
             <div class="col-md-2"></div>
-            <div class="col-md-4"><h1 class=title>Download Data</h1></div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <img src="/static/images/rings.png" alt="Olympic Rings" style="height:150px">
             </div>
+            <div class="col-md-4"><h1 class=title>Download Data</h1></div>
         </div>
 
         <div class="row">
@@ -77,7 +77,7 @@
                         <div class="card" style="width: 18rem;">
                             <div class="card-body">
                                 <h5 class="card-title">Olympics Data</h5>
-                                <p class="card-text">Data source pulled from Kaggle.com</p>
+                                <p class="card-text">Kaggle: 120 years of Olympic history: athletes and results</p>
                                 <a href="https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results/data#" class="btn btn-primary" target="_blank">Click Here</a>
                             </div>
                         </div>
@@ -87,7 +87,7 @@
                         <div class="card" style="width: 18rem;">
                             <div class="card-body">
                                 <h5 class="card-title">Population Data</h5>
-                                <p class="card-text">Data source pulled from WorldBank</p>
+                                <p class="card-text">Data source provided by WorldBank.org</p>
                                 <a href="https://databank.worldbank.org/reports.aspx?source=2&series=SP.POP.TOTL&country=#" class="btn btn-primary" target="_blank">Click Here</a>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                         <div class="card" style="width: 18rem;">
                             <div class="card-body">
                                 <h5 class="card-title">GDP Data</h5>
-                                <p class="card-text">Data source pulled from WorldBank</p>
+                                <p class="card-text">Data source provided by WorldBank.org</p>
                                 <a href="https://databank.worldbank.org/reports.aspx?source=2&series=NY.GDP.MKTP.CD&country=#" class="btn btn-primary" target="_blank">Click Here</a>
                             </div>
                         </div>
