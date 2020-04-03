@@ -644,7 +644,8 @@ function gdpPopCombo(selectDiv, x_axis, population, gdp, perCapitaGdp){
     });
 }
 
-function medalScatter(selectDiv, title, winterPerCapitaGdp, winterMedals, winterCountries, winterGames, summerPerCapitaGdp, summerMedals, summerCountries, summerGames) {
+function medalScatter(selectDiv, title, x_axis_label, winterPerCapitaGdp, winterMedals, winterCountries, winterGames, summerPerCapitaGdp, summerMedals, summerCountries, summerGames) {
+    
     Highcharts.chart(selectDiv, {
         chart: {
             type: 'scatter'
@@ -655,7 +656,7 @@ function medalScatter(selectDiv, title, winterPerCapitaGdp, winterMedals, winter
         xAxis: {
             title: {
                 enabled: true,
-                text: "GDP"
+                text: x_axis_label
             },
             startOnTick: true,
             endOnTick: true,
@@ -696,10 +697,10 @@ function medalScatter(selectDiv, title, winterPerCapitaGdp, winterMedals, winter
                 },
                 tooltip: {
                     headerFormat: '<b>{series.name}</b><br>',
-                    pointFormat: '{point.name} <br> ${point.x: ,.0f} GDP per Capita, <br>{point.y} Medals'
+                    pointFormat: '{point.name} <br> X-Value: {point.x: ,.0f}, <br>Y-Value: {point.y} Medals'
                 },
             },
-            series: {turboThreshold:5000}
+            series: {turboThreshold:10000}
         },
         series: [
             {

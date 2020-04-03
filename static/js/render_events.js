@@ -50,6 +50,10 @@ function createAllView(){
         var summerGames = [];
         var winterGames = [];
 
+        var population = [];
+        var summerPopulation = [];
+        var winterPopulation = [];
+
         var olympians = [];
         var summerOlympians = [];
         var winterOlympians = [];
@@ -89,6 +93,9 @@ function createAllView(){
             var game = d.Game_Label;
             games.push(game);
 
+            var pop = d.Population;
+            population.push(pop);
+
             var gold = d.Gold_athlete;
             golds.push(gold);
 
@@ -106,6 +113,7 @@ function createAllView(){
                 summerCountries.push(country);
                 summerOlympians.push(olympian);
                 summerGames.push(game);
+                summerPopulation.push(pop);
                 summerGolds.push(gold);
                 summerSilvers.push(silver);
                 summerBronzes.push(bronze);
@@ -115,6 +123,7 @@ function createAllView(){
                 winterCountries.push(country);
                 winterOlympians.push(olympian);
                 winterGames.push(game);
+                winterPopulation.push(pop);
                 winterGolds.push(gold);
                 winterSilvers.push(silver);
                 winterBronzes.push(bronze);
@@ -157,7 +166,8 @@ function createAllView(){
             winterNonmedals.push(nonmedalist);
         }
     
-        medalScatter('scatter', 'GDP and Medal Count', winterGdp, winterMedals, winterCountries, winterGames, summerGdp, summerMedals, summerCountries, summerGames);
+        medalScatter('scatter-gdp', 'GDP and Medal Count', 'GDP', winterGdp, winterMedals, winterCountries, winterGames, summerGdp, summerMedals, summerCountries, summerGames);
+        medalScatter('scatter-pop', 'Population and Medal Count', 'Population', winterPopulation, winterMedals, winterCountries, winterGames, summerPopulation, summerMedals, summerCountries, summerGames);
         olympianMedalBar('medalist-bar');
         stackedEventBar('events-country');
         stackedOlympianBar('olympians-country');
@@ -196,6 +206,7 @@ function eventFilteredCharts(searchLink) {
         var population = [];
         var summerPopulation = [];
         var winterPopulation = [];
+
         var gdp = [];
         var summerGdp = [];
         var winterGdp = [];
@@ -327,9 +338,10 @@ function eventFilteredCharts(searchLink) {
         stackedOlympianHorBar('olympians-country', 'Olympians by Country', countries, golds, silvers, bronzes, nonmedals);
         olympianMedalBar('medalist-bar', '% Medalist by Country', countries, medalist_perc);
         stackedEventBar('events-country', 'Event Medals by Country', countries, tgolds, tsilvers, tbronzes);
-        medalScatter('scatter-gdp', 'GDP and Medal Count',winterGdp, winterMedals, winterCountries, winterGames, summerGdp, summerMedals, summerCountries, summerGames);
-        medalScatter('scatter-pop', 'Population and Medal Count',winterPop, winterMedals, winterCountries, winterGames, summerPop, summerMedals, summerCountries, summerGames);
-        medalScatter('scatter-percap', 'GDP per Capita and Medal Count',winterGdp, winterMedals, winterCountries, winterGames, summerGdp, summerMedals, summerCountries, summerGames);
+        medalScatter('scatter-gdp', 'GDP and Medal Count', 'GDP', winterGdp, winterMedals, winterCountries, winterGames, summerGdp, summerMedals, summerCountries, summerGames);
+        medalScatter('scatter-pop', 'Population and Medal Count', 'Population', winterPopulation, winterMedals, winterCountries, winterGames, summerPopulation, summerMedals, summerCountries, summerGames);
+       
+        
     });
 }
 

@@ -66,13 +66,13 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('index') }}"> <span class="material-icons"> home </span> Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('countries') }}"> <span class="material-icons"> place </span> Data by Country</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
             <a class="nav-link" href="{{ url_for('events') }}"> <span class="material-icons"> event </span> Data by Event </a>
             </li>
             <li class="nav-item">
@@ -109,9 +109,6 @@
                 </div>
                 <div class="row">
                     <div id="scatter-pop"></div>
-                </div>
-                <div class="row">
-                    <div id="scatter-percap"></div>
                 </div>
                 <div class="row">
                     <div id="events-country"></div>
