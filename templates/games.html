@@ -51,7 +51,7 @@
                 <a class="nav-link" href="{{ url_for('countries') }}"> <span class="material-icons"> place </span> Data by Country</a>
             </li>
             <li class="nav-item active">
-            <a class="nav-link" href="{{ url_for('events') }}"> <span class="material-icons"> event </span> Data by Game </a>
+            <a class="nav-link" href="{{ url_for('games') }}"> <span class="material-icons"> event </span> Data by Game </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('data') }}"> <span class="material-icons"> cloud_download </span> Download Data </a>
@@ -70,7 +70,7 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-3">
-                <p>Filter by Event</p>
+                <p>Filter by Game</p>
                 <select id="selEvent" onchange="eventChanged(this.value)">
                 </select>
             </div>
