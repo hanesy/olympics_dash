@@ -197,7 +197,8 @@ function stackedOlympianHorBar(selectDiv, title, x_axis, golds, silvers, bronzes
     });
 }
 
-function olympianPie(selectDiv, title, nonmedals, golds, silvers, bronzes, winterNonmedals, winterGolds, winterSilvers, winterBronzes, summerNonmedals, summerGolds, summerSilvers, summerBronzes){
+
+function olympianPieBig(selectDiv, title, nonmedals, golds, silvers, bronzes){
     Highcharts.chart(selectDiv, {
         chart: 
         {
@@ -210,30 +211,6 @@ function olympianPie(selectDiv, title, nonmedals, golds, silvers, bronzes, winte
         {
             text: title
         },
-        labels: {
-            items: [{
-                html: 'Both Games',
-                style: {
-                    left: '120px',
-                    top: '18px'
-                }
-            },
-            {
-                html: 'Winter Games',
-                style: {
-                    left: '330px',
-                    top: '18px'
-                }
-            },
-            {
-                html: 'Summer Games',
-                style: {
-                    left: '330px',
-                    top: '218px'
-                }
-            }
-            ]
-        },
         
         tooltip: 
         {
@@ -245,6 +222,7 @@ function olympianPie(selectDiv, title, nonmedals, golds, silvers, bronzes, winte
                 valueSuffix: '%'
             }
         },
+
         plotOptions: 
         {
             pie: 
@@ -257,7 +235,6 @@ function olympianPie(selectDiv, title, nonmedals, golds, silvers, bronzes, winte
                 }
             }
         },
-    
         series: 
         [
             {
@@ -288,90 +265,101 @@ function olympianPie(selectDiv, title, nonmedals, golds, silvers, bronzes, winte
                         color: medalColors[2]// color match bar chart
                     }
                 ],
-                center: [150, 100],
-                size: 100,
+
                 showInLegend: true,
                 dataLabels: 
                 {
                     // enabled: true
                 }
-        },
+        }],
+        
+    });
+
+}
+
+function olympianPieSmall(selectDiv, title, nonmedals, golds, silvers, bronzes){
+    Highcharts.chart(selectDiv, {
+        chart: 
         {
-            minPointSize: 10,
-            innerSize: '20%',
-            zMin: 0,
-            name: '% All-Time',
-            data: 
-            [
-                {
-                    name: 'Winter Non-Medalist',
-                    y: sumArray(winterNonmedals),
-                    color: chartColors[2] // color match bar chart
-                }, 
-                {
-                    name: 'Winter Gold',
-                    y: sumArray(winterGolds),
-                    color: medalColors[0] // color match bar chart
-                }, 
-                {
-                    name: 'Winter Silver',
-                    y: sumArray(winterSilvers),
-                    color: medalColors[1] // color match bar chart
-                },
-                {
-                    name: 'Winter Bronze',
-                    y: sumArray(winterBronzes),
-                    color: medalColors[2] // color match bar chart
-                }
-            ],
-            center: [350, 50],
-            size: 60,
-            // showInLegend: true,
-            dataLabels: 
-            {
-                // enabled: true
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: 
+        {
+            text: title,
+            style: {
+                "fontSize": "10px"
             }
         },
+        
+        tooltip: 
         {
-            minPointSize: 10,
-            innerSize: '20%',
-            zMin: 0,
-            name: '% All-Time',
-            data: 
-            [
-                {
-                    name: 'Summer Non-Medalist',
-                    y: sumArray(summerNonmedals),
-                    color: chartColors[2] // color match bar chart
-                }, 
-                {
-                    name: 'Summer Gold',
-                    y: sumArray(summerGolds),
-                    color: medalColors[0] // color match bar chart
-                }, 
-                {
-                    name: 'Summer Silver',
-                    y: sumArray(summerSilvers),
-                    color: medalColors[1] // color match bar chart
-                },
-                {
-                    name: 'Summer Bronze',
-                    y: sumArray(summerBronzes),
-                    color: medalColors[2] // color match bar chart
-                }
-            ],
-            center: [350, 150],
-            size: 60,
-            // showInLegend: true,
-            dataLabels: 
-            {
-                // enabled: true
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        accessibility: 
+        {
+            point: {
+                valueSuffix: '%'
             }
-        }
-    
-    
-    
-    ]
+        },
+
+        plotOptions: 
+        {
+            pie: 
+            {
+                // allowPointSelect: true,
+                // cursor: 'pointer',
+                dataLabels: {
+                    enabled: false,
+                    // format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                }
+            }
+        },
+        legend:
+        {
+            enabled: false
+        },
+
+        series: 
+        [
+            {
+                minPointSize: 10,
+                innerSize: '20%',
+                zMin: 0,
+                name: '% All-Time',
+                data: 
+                [
+                    {
+                        name: 'Non-Medalist',
+                        y: sumArray(nonmedals),
+                        color: chartColors[2] // color match bar chart
+                    }, 
+                    {
+                        name: 'Gold',
+                        y: sumArray(golds),
+                        color: medalColors[0] // color match bar chart
+                    }, 
+                    {
+                        name: 'Silver',
+                        y: sumArray(silvers),
+                        color: medalColors[1] // color match bar chart
+                    },
+                    {
+                        name: 'Bronze',
+                        y: sumArray(bronzes),
+                        color: medalColors[2]// color match bar chart
+                    }
+                ],
+
+                showInLegend: true,
+                dataLabels: 
+                {
+                    // enabled: true
+                }
+        }],
+        
     });
 
 }

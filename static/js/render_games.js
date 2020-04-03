@@ -166,8 +166,8 @@ function createAllView(){
             winterNonmedals.push(nonmedalist);
         }
     
-        medalScatter('scatter-gdp', 'GDP and Medal Count', 'GDP', winterGdp, winterMedals, winterCountries, winterGames, summerGdp, summerMedals, summerCountries, summerGames);
-        medalScatter('scatter-pop', 'Population and Medal Count', 'Population', winterPopulation, winterMedals, winterCountries, winterGames, summerPopulation, summerMedals, summerCountries, summerGames);
+        medalScatter('scatter-gdp', 'GDP and Olympian Medal Count', 'GDP', winterGdp, winterMedals, winterCountries, winterGames, summerGdp, summerMedals, summerCountries, summerGames);
+        medalScatter('scatter-pop', 'Population and Olympian Medal Count', 'Population', winterPopulation, winterMedals, winterCountries, winterGames, summerPopulation, summerMedals, summerCountries, summerGames);
         olympianMedalBar('medalist-bar');
         stackedEventBar('events-country');
         stackedOlympianBar('olympians-country');

@@ -180,12 +180,12 @@ function defaultOneofTwo(){
 
         var perCapitaGdp = divideArrays(gdp, population);
 
-        stackedOlympianBar('summer-olympians', 'Summer Olympians Over Time', summerGames, summerGolds, summerSilvers, summerBronzes, summerNonmedals);
-        stackedOlympianBar('winter-olympians', 'Winter Olympians Over Time', winterGames, winterGolds, winterSilvers, winterBronzes, winterNonmedals);
+        stackedOlympianBar('summer-olympians', 'Olympians Over Time', summerGames, summerGolds, summerSilvers, summerBronzes, summerNonmedals);
+        stackedOlympianBar('winter-olympians', 'Olympians Over Time', winterGames, winterGolds, winterSilvers, winterBronzes, winterNonmedals);
         olympianLine('summer-olympians-perc', '% Medalists Over Time', summerGames, summer_medalist_perc);
         olympianLine('winter-olympians-perc', '% Medalists Over Time', winterGames, winter_medalist_perc);
-        medalArea('summer-events', 'Summer Event Medals Over Time', summerGames, summerTGolds, summerTSilvers, summerTBronzes);
-        medalArea('winter-events', 'Winter Event Medals Over Time', winterGames, winterTGolds, winterTSilvers, winterTBronzes);
+        medalArea('summer-events', 'Event Medals Over Time', summerGames, summerTGolds, summerTSilvers, summerTBronzes);
+        medalArea('winter-events', 'Event Medals Over Time', winterGames, winterTGolds, winterTSilvers, winterTBronzes);
         gdpPopCombo('gdp-combo', years, population, gdp, perCapitaGdp);
     });
 }
@@ -274,7 +274,10 @@ function defaultTwoofTwo(){
             winterNonmedals.push(nonmedalist);
         }
 
-        olympianPie('olympians-pie', 'All Time Olympian Medalists (%)',nonmedals, golds, silvers, bronzes, winterNonmedals, winterGolds, winterSilvers, winterBronzes, summerNonmedals, summerGolds, summerSilvers, summerBronzes);
+        olympianPieBig('olympians-pie1', 'All Time Olympian Medalists (%)',nonmedals, golds, silvers, bronzes);
+        olympianPieSmall('olympians-pie2', 'Winter Olympian Medalists (%)', summerNonmedals, summerGolds, summerSilvers, summerBronzes);
+        olympianPieSmall('olympians-pie3', 'Summer Olympian Medalists (%)', winterNonmedals, winterGolds, winterSilvers, winterBronzes);
+
 
     });
 }
@@ -435,14 +438,16 @@ function countryFilteredCharts(searchLink) {
 
         var perCapitaGdp = divideArrays(gdp, population);
 
-        stackedOlympianBar('summer-olympians', 'Summer Olympians Over Time', summerGames, summerGolds, summerSilvers, summerBronzes, summerNonmedals);
-        stackedOlympianBar('winter-olympians', 'Winter Olympians Over Time', winterGames, winterGolds, winterSilvers, winterBronzes, winterNonmedals);
+        stackedOlympianBar('summer-olympians', 'Olympians Over Time', summerGames, summerGolds, summerSilvers, summerBronzes, summerNonmedals);
+        stackedOlympianBar('winter-olympians', 'Olympians Over Time', winterGames, winterGolds, winterSilvers, winterBronzes, winterNonmedals);
         olympianLine('summer-olympians-perc', '% Medalists Over Time', summerGames, summer_medalist_perc);
         olympianLine('winter-olympians-perc', '% Medalists Over Time', winterGames, winter_medalist_perc);
-        medalArea('summer-events', 'Summer Event Medals Over Time', summerGames, summerTGolds, summerTSilvers, summerTBronzes);
-        medalArea('winter-events', 'Winter Event Medals Over Time', winterGames, winterTGolds, winterTSilvers, winterTBronzes);
+        medalArea('summer-events', 'Event Medals Over Time', summerGames, summerTGolds, summerTSilvers, summerTBronzes);
+        medalArea('winter-events', 'Event Medals Over Time', winterGames, winterTGolds, winterTSilvers, winterTBronzes);
         gdpPopCombo('gdp-combo', years, population, gdp, perCapitaGdp);
-        olympianPie('olympians-pie', 'All Time Olympian Medalists (%)',nonmedals, golds, silvers, bronzes, winterNonmedals, winterGolds, winterSilvers, winterBronzes, summerNonmedals, summerGolds, summerSilvers, summerBronzes);
+        olympianPieBig('olympians-pie1', 'All Time Olympian Medalists (%)',nonmedals, golds, silvers, bronzes);
+        olympianPieSmall('olympians-pie2', 'Winter Olympian Medalists (%)', summerNonmedals, summerGolds, summerSilvers, summerBronzes);
+        olympianPieSmall('olympians-pie3', 'Summer Olympian Medalists (%)', winterNonmedals, winterGolds, winterSilvers, winterBronzes);
     });
 
 }
