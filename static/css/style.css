@@ -50,3 +50,11 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.chartPadding {
+  background-color:lightgrey; 
+  padding:1%; 
+  border-color:white; 
+  border:1%; 
+  margin:1%
+}
