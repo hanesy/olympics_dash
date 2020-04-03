@@ -60,7 +60,7 @@
                         <a class="nav-link" href="{{ url_for('countries') }}"> <span class="material-icons"> place </span> Data by Country</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('events') }}"> <span class="material-icons"> event </span> Data by Event </a>
+                    <a class="nav-link" href="{{ url_for('events') }}"> <span class="material-icons"> event </span> Data by Game </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('data') }}"> <span class="material-icons"> cloud_download </span> Download Data </a>
@@ -78,7 +78,7 @@
             <div class="col-md-4">
                 <img src="/static/images/rings.png" alt="Olympic Rings" style="height:150px">
             </div>
-      </div>
+        </div>
 
       
         <div class="row">
@@ -122,9 +122,9 @@
             <!-- <div class="col-md-2"></div> -->
             <div class="col-md-6" style="margin-left:20%; margin-bottom:25px;">
                 <div class="mapFilter">
-                    Games: 
+                    Game: 
                     <select onchange="changeYear(this)">
-                        <option value="">Select Event</option>
+                        <option value="">Select Game</option>
                         <option value="Summer 1960 - Roma">Summer 1960 - Roma</option>
                         <option value="Winter 1960 - Squaw Valley">Winter 1960 - Squaw Valley</option>
                         <option value="Summer 1964 - Tokyo">Summer 1964 - Tokyo</option>
