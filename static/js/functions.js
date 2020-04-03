@@ -32,6 +32,7 @@ function sumArray (array){
     return sum;
 }
 
+// function for creating objects for scatter plot
 function scatterMatchArrays(perCap, medals, countries, games){
     var finalArray = [];
 

@@ -37,6 +37,7 @@ function eventChanged(value){
     }
 }
 
+// Create a view for all countries and games
 function createAllView(){
     var searchLink = "/events_final_country/"
     d3.json(searchLink, function(data){
@@ -344,7 +345,6 @@ function eventFilteredCharts(searchLink) {
         
     });
 }
-
 
 // Initialize Website
 init();

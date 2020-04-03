@@ -14,7 +14,6 @@ var medalColors = ["#D9A84E","#D9D5D2","#A6705D"];
 // blue accent, red accent, frozen blue, greenish brown, sepia
 var chartColors = ["#324759", "#A60321", "#CEE8F2", "#B5AF87", "#8F8684"];
 
-
 // functions for generating charts
 function stackedOlympianBar(selectDiv, title, x_axis, golds, silvers, bronzes, nonmedals){
     Highcharts.chart(selectDiv, {
@@ -34,7 +33,7 @@ function stackedOlympianBar(selectDiv, title, x_axis, golds, silvers, bronzes, n
         },
     
         yAxis: 
-        [{ // Primary yAxis    
+        [{ 
             min: 0,
             labels: 
             {
@@ -124,7 +123,7 @@ function stackedOlympianHorBar(selectDiv, title, x_axis, golds, silvers, bronzes
         },
     
         yAxis: 
-        [{ // Primary yAxis    
+        [{    
             min: 0,
             labels: 
             {
@@ -197,7 +196,6 @@ function stackedOlympianHorBar(selectDiv, title, x_axis, golds, silvers, bronzes
     });
 }
 
-
 function olympianPieBig(selectDiv, title, nonmedals, golds, silvers, bronzes){
     Highcharts.chart(selectDiv, {
         chart: 
@@ -227,11 +225,8 @@ function olympianPieBig(selectDiv, title, nonmedals, golds, silvers, bronzes){
         {
             pie: 
             {
-                // allowPointSelect: true,
-                // cursor: 'pointer',
                 dataLabels: {
                     enabled: false,
-                    // format: '<b>{point.name}</b>: {point.percentage:.1f} %'
                 }
             }
         },
@@ -267,10 +262,7 @@ function olympianPieBig(selectDiv, title, nonmedals, golds, silvers, bronzes){
                 ],
 
                 showInLegend: true,
-                dataLabels: 
-                {
-                    // enabled: true
-                }
+
         }],
         
     });
@@ -309,11 +301,8 @@ function olympianPieSmall(selectDiv, title, nonmedals, golds, silvers, bronzes){
         {
             pie: 
             {
-                // allowPointSelect: true,
-                // cursor: 'pointer',
                 dataLabels: {
                     enabled: false,
-                    // format: '<b>{point.name}</b>: {point.percentage:.1f} %'
                 }
             }
         },
@@ -354,10 +343,6 @@ function olympianPieSmall(selectDiv, title, nonmedals, golds, silvers, bronzes){
                 ],
 
                 showInLegend: true,
-                dataLabels: 
-                {
-                    // enabled: true
-                }
         }],
         
     });
@@ -370,10 +355,6 @@ function olympianLine(selectDiv, title, x_axis, medalist_perc){
         title: {
             text: title
         },
-    
-        // subtitle: {
-        //     text: 'Source: thesolarfoundation.com'
-        // },
     
         yAxis: {
             title: {
@@ -445,9 +426,6 @@ function medalArea(selectDiv, title, x_axis, tgolds, tsilvers, tbronzes ){
         title: {
             text: title
         },
-        // subtitle: {
-        //     text: 'Source: Wikipedia.org'
-        // },
         xAxis: {
             categories: x_axis,
             tickmarkPlacement: 'on',
@@ -462,15 +440,9 @@ function medalArea(selectDiv, title, x_axis, tgolds, tsilvers, tbronzes ){
             title: {
                 text: 'Medals'
             },
-            // labels: {
-            //     formatter: function () {
-            //         return this.value / 1000;
-            //     }
-            // }
         },
         tooltip: {
             split: true,
-            // valueSuffix: ' millions'
         },
         plotOptions: {
             area: {
@@ -523,7 +495,7 @@ function gdpPopCombo(selectDiv, x_axis, population, gdp, perCapitaGdp){
         }],
         
         yAxis: 
-        [{ // Primary yAxis
+        [{// Primary axis
             title: {
                 text: 'GDP per Capita ($)',
                 style: {
@@ -531,14 +503,6 @@ function gdpPopCombo(selectDiv, x_axis, population, gdp, perCapitaGdp){
                 }
             },
             labels: {
-                // valuePrefix: "$",
-                // format: '${value:,.0f}',
-                // formatter: function() {
-                //     if (this.value >= 1E6) {
-                //       return ('$' + this.value / 1000000 + 'M');
-                //     }
-                //     return '$' + this.value / 1000 + 'k';
-                //   },
                 style: {
                     color: chartColors[3]
                 },
@@ -553,13 +517,6 @@ function gdpPopCombo(selectDiv, x_axis, population, gdp, perCapitaGdp){
                 }
             },
             labels: {
-                // format: '${value}',
-                // formatter: function() {
-                //     if (this.value >= 1E6) {
-                //       return '$' + this.value / 1000000 + 'M';
-                //     }
-                //     return '$' + this.value / 1000 + 'k';
-                //   },
                 style: {
                     color: chartColors[4]
                 }
@@ -574,13 +531,6 @@ function gdpPopCombo(selectDiv, x_axis, population, gdp, perCapitaGdp){
                 }
             },
             labels: {
-                // format: '{value:,f}',
-                // formatter: function() {
-                //     if (this.value >= 1E6) {
-                //       return '$' + this.value / 1000000 + 'M';
-                //     }
-                //     return '$' + this.value / 1000 + 'k';
-                //   },
                 style: {
                     color: chartColors[0]
                 }
@@ -622,10 +572,6 @@ function gdpPopCombo(selectDiv, x_axis, population, gdp, perCapitaGdp){
                 type: 'spline',
                 yAxis: 2,
                 data: population,
-                tooltip: 
-                {
-                    // valuePrefix: 'T'
-                },
                 color: chartColors[0]
             },
         ]
@@ -655,16 +601,6 @@ function medalScatter(selectDiv, title, x_axis_label, winterPerCapitaGdp, winter
                 text: 'Medal Count'
             }
         },
-        // legend: {
-        //     layout: 'vertical',
-        //     align: 'left',
-        //     verticalAlign: 'top',
-        //     x: 100,
-        //     y: 70,
-        //     floating: true,
-        //     backgroundColor: Highcharts.defaultOptions.chart.backgroundColor,
-        //     borderWidth: 1
-        // },
         plotOptions: {
             scatter: {
                 marker: {
@@ -712,7 +648,6 @@ function olympianMedalBar(selectDiv, title, x_axis,medalist_perc){
     Highcharts.chart(selectDiv, {
         chart:{
             type: 'bar',
-            // width: 100%,
         },
         title: 
         {
@@ -736,9 +671,6 @@ function olympianMedalBar(selectDiv, title, x_axis,medalist_perc){
         },
     
         series: [{
-            // dataSorting: {
-            //     enabled: true
-            // },
             name: '% Medalists',
             data: medalist_perc,
             tooltip: {
@@ -769,7 +701,7 @@ function stackedEventBar(selectDiv, title, x_axis, golds, silvers, bronzes){
         },
     
         yAxis: 
-        [{ // Primary yAxis    
+        [{    
             min: 0,
             labels: 
             {
@@ -856,7 +788,7 @@ function countryBar(selectDiv, title, x_axis, countries){
         },
     
         yAxis: 
-        [{ // Primary yAxis    
+        [{     
             min: 0,
             labels: 
             {
