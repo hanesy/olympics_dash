@@ -182,7 +182,7 @@ def events_final_games(Game_Label):
         Events_Final.Total_Medals_team
         ]
 
-    results = session.query(*sel).filter(Events_Final.Game_Label.like(f"%{Game_Label}%")).all()
+    results = session.query(*sel).filter(Events_Final.Game_Label == Game_Label).all()
 
     session.close ()
 
@@ -226,7 +226,6 @@ def NOC_Country_list():
 
     results = session.query(*sel).group_by(*sel).order_by(Events_Final.Country).all()
 
-    # print(results)
     session.close ()
 
     # Create a dictionary entry for each row of Combined dataframe
