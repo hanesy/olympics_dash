@@ -19,7 +19,6 @@ Base.prepare(disk_engine, reflect=True)
 
 Events = Base.classes.events
 Events_Final = Base.classes.events_final
-# Countries_per_Event = Base.classes.countries_per_event
 
 @app.route("/")
 def index():
@@ -28,23 +27,18 @@ def index():
 
 @app.route("/countries")
 def countries():
-    """Return the homepage."""
+
     return render_template("countries.html")
 
-@app.route("/events")
+@app.route("/games")
 def events():
-    """Return the homepage."""
-    return render_template("events.html")
+
+    return render_template("games.html")
 
 @app.route("/data")
 def data():
-    """Return the homepage."""
-    return render_template("data.html")
 
-@app.route("/map")
-def map():
-    """Return the homepage."""
-    return render_template("map.html")
+    return render_template("data.html")
 
 @app.route("/events_final_country/")
 def events_final_country():
