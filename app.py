@@ -31,7 +31,7 @@ def countries():
     return render_template("countries.html")
 
 @app.route("/games")
-def events():
+def games():
 
     return render_template("games.html")
 
