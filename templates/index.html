@@ -86,19 +86,20 @@
             </div>
             <div class="col-md-8 chartPadding">
                 <div class="row">
-                    <h4>Project Intro</h4>
+                    <h4> Introduction </h4></b>
                 </div>  
                 <div class="row">
-                    <p>Our project looks at how population & GDP affect how well countries perform at the Olympics.  We examined all Olympic Games, from 1960 to today.</p>
+                    <p>This dashboard was developed to review the relevance of population & GDP to countries' performes at the Olympics.</p>
+                    <p>In doing this, we decided to choose a "modern" subset of Olympic Games, ranging from 1960 to 2016. As there is a larger breath of competing countries in this range and a better record of population and wealth stastics.</p>
                     <br>
                     <br>
-                    <p>Things to note:</p>
+                    <b><p>Please note:</p></b>
                         <ul>
-                            <li>Country names and boundries have changed in the last sixty years.  As an example: if you are looking for the full Olympic of a country that was renamed like Russia, you will need to look for both the Soviet Union and Russia.
+                            <li>Country names and boundries have changed in the last sixty years.  As an example: if you are looking for the full Olympic history of a country that was renamed -- like Russia -- you will need to look for both the Soviet Union and Russia.
                             </li>
-                            <li>Not all countries have competed in both the summer and winter olympics, and thus you may seem some "blank" graphs due to lack of participation.</li>
+                            <li>Not all countries have competed in both the summer and winter olympics, and thus you may see some "blank" graphs due to non-participation.</li>
                             <li>The most recent Summer Olympics had 306 events, with a total of 918 medals.  In comparison, the most recent Winter Olympics had only 102 events, the first Winter Olympics to surpass 100 events.  Keep this in mind when comparing Summer numbers to Winter numbers.</li>
-                            <li>Winter and Summer Olympics were held in the same year until 1992, until they split to be on separate four year cycles.  The next Winter Olympics was held in 1994.</li>
+                            <li>Winter and Summer Olympics were held in the same year until 1992, until they split into separate four year cycles.  The next Winter Olympics was held in 1994.</li>
                         </ul>
                 </div>
             </div>
@@ -109,12 +110,11 @@
 
             </div>
             <div class="col-md-8">
-                <!-- <h4>World Map</h4>
-                <br> -->
+                <!--Create DropDown filter for map -->
                 <div class="mapFilter">
-                    Game: 
+                    Select Game: 
                     <select onchange="changeYear(this)">
-                        <option value="">Select Game</option>
+                        <option value="">All Games since 1960</option>
                         <option value="Summer 1960 - Roma">Summer 1960 - Roma</option>
                         <option value="Winter 1960 - Squaw Valley">Winter 1960 - Squaw Valley</option>
                         <option value="Summer 1964 - Tokyo">Summer 1964 - Tokyo</option>
@@ -155,6 +155,7 @@
 
         <div class="row" style="margin-left:15px;">
             <div class="col-sm-6 col-md-6 col-lg-6">
+                <h4 style="text-align:center;">World Map - Event Medals</h4>
                 <div class = 'chart' id="map"></div>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6" style="">
