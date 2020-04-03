@@ -7,46 +7,54 @@
   <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
   <script src="/static/js/jquery-2.1.1.min.js"></script>
   <style>
-    #map{ height: 500px; width: 500px; }
+    #map{ height: 100% }
   </style>
 </head>
 <body>
-  <div style="margin-bottom:10px">
+  <div style="margin-bottom: 10px;">
     Year: 
     <select onchange="changeYear(this)">
-      <option value="">Select Year</option>
-      <option value="1960">1960</option>
-      <option value="1964">1964</option>
-      <option value="1968">1968</option>
-      <option value="1972">1972</option>
-      <option value="1976">1976</option>
-      <option value="1980">1980</option>
-      <option value="1984">1984</option>
-      <option value="1988">1988</option>
-      <option value="1992">1992</option>
-      <option value="1994">1994</option>
-      <option value="1996">1996</option>
-      <option value="1998">1998</option>
-      <option value="2000">2000</option>
-      <option value="2002">2002</option>
-      <option value="2004">2004</option>
-      <option value="2006">2006</option>
-      <option value="2008">2008</option>
-      <option value="2010">2010</option>
-      <option value="2012">2012</option>
-      <option value="2014">2014</option>
-      <option value="2016">2016</option>
+      <option value="">Select Event</option>
+      <option value="Summer 1960 - Roma">Summer 1960 - Roma</option>
+      <option value="Winter 1960 - Squaw Valley">Winter 1960 - Squaw Valley</option>
+      <option value="Summer 1964 - Tokyo">Summer 1964 - Tokyo</option>
+      <option value="Winter 1964 - Innsbruck">Winter 1964 - Innsbruck</option>
+      <option value="Summer 1968 - Mexico City">Summer 1968 - Mexico City</option>
+      <option value="Winter 1968 - Grenoble">Winter 1968 - Grenoble</option>
+      <option value="Summer 1972 - Munich">Summer 1972 - Munich</option>
+      <option value="Winter 1972 - Sapporo">Winter 1972 - Sapporo</option>
+      <option value="Summer 1976 - Montreal">Summer 1976 - Montreal</option>
+      <option value="Winter 1976 - Innsbruck">Winter 1976 - Innsbruck</option>
+      <option value="Summer 1980 - Moskva">Summer 1980 - Moskva</option>
+      <option value="Winter 1980 - Lake Placid">Winter 1980 - Lake Placid</option>
+      <option value="Summer 1984 - Los Angeles">Summer 1984 - Los Angeles</option>
+      <option value="Winter 1984 - Sarajevo">Winter 1984 - Sarajevo</option>
+      <option value="Summer 1988 - Seoul">Summer 1988 - Seoul</option>
+      <option value="Winter 1988 - Calgary">Winter 1988 - Calgary</option>
+      <option value="Summer 1992 - Barcelona">Summer 1992 - Barcelona</option>
+      <option value="Winter 1992 - Albertville">Winter 1992 - Albertville</option>
+      <option value="Winter 1994 - Lillehammer">Winter 1994 - Lillehammer</option>
+      <option value="Summer 1996 - Atlanta">Summer 1996 - Atlanta</option>
+      <option value="Winter 1998 - Nagano">Winter 1998 - Nagano</option>
+      <option value="Summer 2000 - Sydney">Summer 2000 - Sydney</option>
+      <option value="Winter 2002 - Salt Lake City">Winter 2002 - Salt Lake City</option>
+      <option value="Summer 2004 - Athina">Summer 2004 - Athina</option>
+      <option value="Winter 2006 - Torino">Winter 2006 - Torino</option>
+      <option value="Summer 2008 - Beijing">Summer 2008 - Beijing</option>
+      <option value="Winter 2010 - Vancouver">Winter 2010 - Vancouver</option>
+      <option value="Summer 2012 - London">Summer 2012 - London</option>
+      <option value="Winter 2014 - Sochi">Winter 2014 - Sochi</option>
+      <option value="Summer 2016 - Rio de Janeiro">Summer 2016 - Rio de Janeiro</option>
     </select>
 
-    Season:
+    <!-- Season:
     <select onchange="changeSeason(this)">
       <option value="">Select All</option>
       <option value="Summer">Summer</option>
       <option value="Winter">Winter</option>
-    </select>
+    </select> -->
   </div>
-
-      <div id="map"></div>
+  <div id="map"></div>
 
   <!-- json code -->
   <script type="text/javascript" src="/static/json/medal_counts.json"></script>
