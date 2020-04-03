@@ -874,7 +874,7 @@ function countryBar(selectDiv, title, x_axis, countries){
             {
                 style: 
                 {
-                    color: chartColors[4]
+                    color: chartColors[3]
                 }
             },
             title: 
@@ -882,7 +882,7 @@ function countryBar(selectDiv, title, x_axis, countries){
                 text: 'Number of Countries',
                 style: 
                 {
-                    color: chartColors[4]
+                    color: chartColors[3]
                 }
             }
         }],
@@ -903,7 +903,7 @@ function countryBar(selectDiv, title, x_axis, countries){
                 yAxis: 0,
                 name: 'Participating Countries',
                 data: countries, 
-                color: chartColors[4],
+                color: chartColors[3],
                 stack: 'medalist'
             }
 ]
