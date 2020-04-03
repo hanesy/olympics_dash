@@ -275,8 +275,8 @@ function defaultTwoofTwo(){
         }
 
         olympianPieBig('olympians-pie1', 'All Time Olympian Medalists (%)',nonmedals, golds, silvers, bronzes);
-        olympianPieSmall('olympians-pie2', 'Winter Olympian Medalists (%)', summerNonmedals, summerGolds, summerSilvers, summerBronzes);
-        olympianPieSmall('olympians-pie3', 'Summer Olympian Medalists (%)', winterNonmedals, winterGolds, winterSilvers, winterBronzes);
+        olympianPieSmall('olympians-pie2', 'Summer Olympian Medalists (%)', summerNonmedals, summerGolds, summerSilvers, summerBronzes);
+        olympianPieSmall('olympians-pie3', 'Winter Olympian Medalists (%)', winterNonmedals, winterGolds, winterSilvers, winterBronzes);
 
 
     });
@@ -446,8 +446,8 @@ function countryFilteredCharts(searchLink) {
         medalArea('winter-events', 'Event Medals Over Time', winterGames, winterTGolds, winterTSilvers, winterTBronzes);
         gdpPopCombo('gdp-combo', years, population, gdp, perCapitaGdp);
         olympianPieBig('olympians-pie1', 'All Time Olympian Medalists (%)',nonmedals, golds, silvers, bronzes);
-        olympianPieSmall('olympians-pie2', 'Winter Olympian Medalists (%)', summerNonmedals, summerGolds, summerSilvers, summerBronzes);
-        olympianPieSmall('olympians-pie3', 'Summer Olympian Medalists (%)', winterNonmedals, winterGolds, winterSilvers, winterBronzes);
+        olympianPieSmall('olympians-pie2', 'Summer Olympian Medalists (%)', summerNonmedals, summerGolds, summerSilvers, summerBronzes);
+        olympianPieSmall('olympians-pie3', 'Winter Olympian Medalists (%)', winterNonmedals, winterGolds, winterSilvers, winterBronzes);
     });
 
 }

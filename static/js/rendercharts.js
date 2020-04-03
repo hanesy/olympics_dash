@@ -35,20 +35,9 @@ function stackedOlympianBar(selectDiv, title, x_axis, golds, silvers, bronzes, n
         yAxis: 
         [{ 
             min: 0,
-            labels: 
-            {
-                style: 
-                {
-                    color: chartColors[3]
-                }
-            },
             title: 
             {
-                text: 'Olympians',
-                style: 
-                {
-                    color: chartColors[3]
-                }
+                text: 'Highest Level of Achievement by Olympians',
             }
         }],
     
@@ -81,7 +70,7 @@ function stackedOlympianBar(selectDiv, title, x_axis, golds, silvers, bronzes, n
             {
                 type: 'column',
                 yAxis: 0,
-                name: 'Bronze medals',
+                name: 'Bronze medalist',
                 data: bronzes, 
                 color: medalColors[2],
                 stack: 'medalist'
@@ -89,7 +78,7 @@ function stackedOlympianBar(selectDiv, title, x_axis, golds, silvers, bronzes, n
             {
                 type: 'column',
                 yAxis: 0,
-                name: 'Silver medals',
+                name: 'Silver medalist',
                 data: silvers,
                 color: medalColors[1],
                 stack: 'medalist'
@@ -97,7 +86,7 @@ function stackedOlympianBar(selectDiv, title, x_axis, golds, silvers, bronzes, n
             {
                 type: 'column',
                 yAxis: 0,
-                name: 'Gold medals', 
+                name: 'Gold medalist', 
                 data: golds, 
                 color: medalColors[0],
                 stack: 'medalist'
@@ -125,20 +114,9 @@ function stackedOlympianHorBar(selectDiv, title, x_axis, golds, silvers, bronzes
         yAxis: 
         [{    
             min: 0,
-            labels: 
-            {
-                style: 
-                {
-                    color: chartColors[3]
-                }
-            },
             title: 
             {
-                text: 'Olympians',
-                style: 
-                {
-                    color: chartColors[3]
-                }
+                text: 'Highest Level of Achievement by Olympians',
             }
         }],
     
@@ -171,7 +149,7 @@ function stackedOlympianHorBar(selectDiv, title, x_axis, golds, silvers, bronzes
             {
                 type: 'column',
                 yAxis: 0,
-                name: 'Bronze medals',
+                name: 'Bronze medalist',
                 data: bronzes, 
                 color: medalColors[2],
                 stack: 'medalist'
@@ -179,7 +157,7 @@ function stackedOlympianHorBar(selectDiv, title, x_axis, golds, silvers, bronzes
             {
                 type: 'column',
                 yAxis: 0,
-                name: 'Silver medals',
+                name: 'Silver medalist',
                 data: silvers,
                 color: medalColors[1],
                 stack: 'medalist'
@@ -187,7 +165,7 @@ function stackedOlympianHorBar(selectDiv, title, x_axis, golds, silvers, bronzes
             {
                 type: 'column',
                 yAxis: 0,
-                name: 'Gold medals', 
+                name: 'Gold medalist', 
                 data: golds, 
                 color: medalColors[0],
                 stack: 'medalist'
@@ -388,6 +366,11 @@ function olympianLine(selectDiv, title, x_axis, medalist_perc){
             }
 
         },
+
+        legend:
+        {
+            enabled: false
+        },
     
         series: [{
             name: '% Medalists',
@@ -513,12 +496,12 @@ function gdpPopCombo(selectDiv, x_axis, population, gdp, perCapitaGdp){
             title: {
                 text: 'GDP ($)',
                 style: {
-                    color: chartColors[4]
+                    color: chartColors[1]
                 }
             },
             labels: {
                 style: {
-                    color: chartColors[4]
+                    color: chartColors[1]
                 }
             },
             opposite: true
@@ -565,7 +548,7 @@ function gdpPopCombo(selectDiv, x_axis, population, gdp, perCapitaGdp){
                 {
                     valuePrefix: '$'
                 },
-                color: chartColors[4]
+                color: chartColors[1]
             },
             {
                 name: 'Population',
@@ -670,6 +653,7 @@ function olympianMedalBar(selectDiv, title, x_axis,medalist_perc){
             }
         },
     
+
         series: [{
             name: '% Medalists',
             data: medalist_perc,
@@ -703,20 +687,9 @@ function stackedEventBar(selectDiv, title, x_axis, golds, silvers, bronzes){
         yAxis: 
         [{    
             min: 0,
-            labels: 
-            {
-                style: 
-                {
-                    color: chartColors[3]
-                }
-            },
             title: 
             {
-                text: 'Olympians',
-                style: 
-                {
-                    color: chartColors[3]
-                }
+                text: 'Medals',
             }
         }],
     
@@ -790,20 +763,9 @@ function countryBar(selectDiv, title, x_axis, countries){
         yAxis: 
         [{     
             min: 0,
-            labels: 
-            {
-                style: 
-                {
-                    color: chartColors[3]
-                }
-            },
             title: 
             {
                 text: 'Number of Countries',
-                style: 
-                {
-                    color: chartColors[3]
-                }
             }
         }],
         
