@@ -11,8 +11,8 @@ Highcharts.setOptions({
 // gold, silver, bronze,
 var medalColors = ["#D9A84E","#D9D5D2","#A6705D"];
 
-// blue accent, red accent,greenish brown, sepia
-var chartColors = ["#324759", "#A60321", "#B5AF87", "#8F8684"];
+// blue accent, red accent, frozen blue, greenish brown, sepia
+var chartColors = ["#324759", "#A60321", "#CEE8F2", "#B5AF87", "#8F8684"];
 
 
 // functions for generating charts
@@ -56,6 +56,96 @@ function stackedOlympianBar(selectDiv, title, x_axis, golds, silvers, bronzes, n
         plotOptions: 
         {
             column: 
+            {
+                stacking: 'normal'
+            }
+        },
+        
+        tooltip: {
+            shared: true
+        },
+
+        legend: {
+            reversed: true
+        },
+
+        series: 
+        [
+            {
+                type: 'column',
+                yAxis: 0,
+                name: 'No medals',
+                data: nonmedals,
+                color: chartColors[2],
+                stack: 'medalist'
+            }, 
+            {
+                type: 'column',
+                yAxis: 0,
+                name: 'Bronze medals',
+                data: bronzes, 
+                color: medalColors[2],
+                stack: 'medalist'
+            }, 
+            {
+                type: 'column',
+                yAxis: 0,
+                name: 'Silver medals',
+                data: silvers,
+                color: medalColors[1],
+                stack: 'medalist'
+            }, 
+            {
+                type: 'column',
+                yAxis: 0,
+                name: 'Gold medals', 
+                data: golds, 
+                color: medalColors[0],
+                stack: 'medalist'
+            },
+]
+    });
+}
+
+function stackedOlympianHorBar(selectDiv, title, x_axis, golds, silvers, bronzes, nonmedals){
+    Highcharts.chart(selectDiv, {
+        chart: {
+            type: 'bar'
+        },
+        title: 
+        {
+            text: title
+        },
+        
+        xAxis: 
+        {
+            categories: x_axis,
+            crosshair: true,
+        },
+    
+        yAxis: 
+        [{ // Primary yAxis    
+            min: 0,
+            labels: 
+            {
+                style: 
+                {
+                    color: chartColors[3]
+                }
+            },
+            title: 
+            {
+                text: 'Olympians',
+                style: 
+                {
+                    color: chartColors[3]
+                }
+            }
+        }],
+    
+        plotOptions: 
+        {
+            series: 
             {
                 stacking: 'normal'
             }
@@ -449,7 +539,7 @@ function gdpPopCombo(selectDiv, x_axis, population, gdp, perCapitaGdp){
             title: {
                 text: 'GDP per Capita ($)',
                 style: {
-                    color: chartColors[2]
+                    color: chartColors[3]
                 }
             },
             labels: {
@@ -462,7 +552,7 @@ function gdpPopCombo(selectDiv, x_axis, population, gdp, perCapitaGdp){
                 //     return '$' + this.value / 1000 + 'k';
                 //   },
                 style: {
-                    color: chartColors[2]
+                    color: chartColors[3]
                 },
     
             }
@@ -471,7 +561,7 @@ function gdpPopCombo(selectDiv, x_axis, population, gdp, perCapitaGdp){
             title: {
                 text: 'GDP ($)',
                 style: {
-                    color: chartColors[3]
+                    color: chartColors[4]
                 }
             },
             labels: {
@@ -483,7 +573,7 @@ function gdpPopCombo(selectDiv, x_axis, population, gdp, perCapitaGdp){
                 //     return '$' + this.value / 1000 + 'k';
                 //   },
                 style: {
-                    color: chartColors[3]
+                    color: chartColors[4]
                 }
             },
             opposite: true
@@ -525,7 +615,7 @@ function gdpPopCombo(selectDiv, x_axis, population, gdp, perCapitaGdp){
                     valuePrefix: '$',
                     valueDecimals: 0
                 },
-                color: chartColors[2]
+                color: chartColors[3]
     
             }, 
             {
@@ -537,7 +627,7 @@ function gdpPopCombo(selectDiv, x_axis, population, gdp, perCapitaGdp){
                 {
                     valuePrefix: '$'
                 },
-                color: chartColors[3]
+                color: chartColors[4]
             },
             {
                 name: 'Population',
@@ -554,7 +644,7 @@ function gdpPopCombo(selectDiv, x_axis, population, gdp, perCapitaGdp){
     });
 }
 
-function gdpCapMedalScatter(selectDiv, title, winterPerCapitaGdp, winterMedals, winterCountries, winterGames, summerPerCapitaGdp, summerMedals, summerCountries, summerGames) {
+function medalScatter(selectDiv, title, winterPerCapitaGdp, winterMedals, winterCountries, winterGames, summerPerCapitaGdp, summerMedals, summerCountries, summerGames) {
     Highcharts.chart(selectDiv, {
         chart: {
             type: 'scatter'
@@ -632,7 +722,7 @@ function gdpCapMedalScatter(selectDiv, title, winterPerCapitaGdp, winterMedals, 
 function olympianMedalBar(selectDiv, title, x_axis,medalist_perc){
     Highcharts.chart(selectDiv, {
         chart:{
-            type: 'column',
+            type: 'bar',
             // width: 100%,
         },
         title: 
@@ -644,9 +734,6 @@ function olympianMedalBar(selectDiv, title, x_axis,medalist_perc){
         {
             categories: x_axis,
             crosshair: true,
-            labels: {
-                rotation: 270
-            }
         },
     
         yAxis: {
@@ -677,6 +764,9 @@ function olympianMedalBar(selectDiv, title, x_axis,medalist_perc){
 
 function stackedEventBar(selectDiv, title, x_axis, golds, silvers, bronzes){
     Highcharts.chart(selectDiv, {
+        chart: {
+            type: 'bar'
+        },
 
         title: 
         {
@@ -687,9 +777,6 @@ function stackedEventBar(selectDiv, title, x_axis, golds, silvers, bronzes){
         {
             categories: x_axis,
             crosshair: true,
-            labels: {
-                rotation: 270
-            }
         },
     
         yAxis: 
@@ -714,7 +801,7 @@ function stackedEventBar(selectDiv, title, x_axis, golds, silvers, bronzes){
     
         plotOptions: 
         {
-            column: 
+            series: 
             {
                 stacking: 'normal'
             }
@@ -763,6 +850,10 @@ function stackedEventBar(selectDiv, title, x_axis, golds, silvers, bronzes){
 function countryBar(selectDiv, title, x_axis, countries){
     Highcharts.chart(selectDiv, {
 
+        chart: {
+            type: 'bar'
+        },
+
         title: 
         {
             text: title
@@ -772,9 +863,7 @@ function countryBar(selectDiv, title, x_axis, countries){
         {
             categories: x_axis,
             crosshair: true,
-            labels: {
-                rotation: 270
-            }
+
         },
     
         yAxis: 
@@ -784,33 +873,25 @@ function countryBar(selectDiv, title, x_axis, countries){
             {
                 style: 
                 {
-                    color: chartColors[3]
+                    color: chartColors[4]
                 }
             },
             title: 
             {
-                text: 'Olympians',
+                text: 'Number of Countries',
                 style: 
                 {
-                    color: chartColors[3]
+                    color: chartColors[4]
                 }
             }
         }],
-    
-        plotOptions: 
-        {
-            column: 
-            {
-                stacking: 'normal'
-            }
-        },
         
         tooltip: {
             shared: true
         },
 
         legend: {
-            reversed: true
+            enabled: false
         },
 
 
@@ -821,7 +902,7 @@ function countryBar(selectDiv, title, x_axis, countries){
                 yAxis: 0,
                 name: 'Participating Countries',
                 data: countries, 
-                color: chartColors[2],
+                color: chartColors[4],
                 stack: 'medalist'
             }
 ]

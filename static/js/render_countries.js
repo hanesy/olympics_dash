@@ -16,7 +16,7 @@ function init()
                 nocs.push(noc);
             }
         })
-        createDropDown("#selCountry", countries, nocs);
+        createDropDownCountry("#selCountry", countries, nocs);
     });
     createDefault();
 };

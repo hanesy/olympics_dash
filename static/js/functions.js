@@ -58,9 +58,17 @@ function scatterMatchArrays(perCap, medals, countries, games){
 }
 
 // creating dropdown functions
-function createDropDown(selectDiv, arrayName, arrayNoc){
+function createDropDownCountry(selectDiv, arrayName, arrayNoc){
     var dropDown = d3.select (selectDiv);
     dropDown.append("option").attr("value", "default").text("Select Options");
+    for (var i = 0; i < arrayName.length; i++) {
+      dropDown.append("option").attr("value", arrayNoc[i]).text(arrayName[i]);
+    }
+}
+
+function createDropDownEvent(selectDiv, arrayName, arrayNoc){
+    var dropDown = d3.select (selectDiv);
+    dropDown.append("option").attr("value", "all").text("All Events");
     for (var i = 0; i < arrayName.length; i++) {
       dropDown.append("option").attr("value", arrayNoc[i]).text(arrayName[i]);
     }

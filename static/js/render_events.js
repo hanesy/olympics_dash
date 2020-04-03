@@ -13,10 +13,15 @@ function init()
                 events.push(event);
             }
         })
-        createDropDown("#selEvent", events, events);
+        createDropDownEvent("#selEvent", events, events);
+
+        // create the first view
+        var latestEvent = events[events.length-1];
+        var firstView = `/events_final_games/${latestEvent}`
+        eventFilteredCharts(firstView);
+        d3.select("#selEvent").property("value", latestEvent);
     });
 
-    createDefault();
 };
 
 // Handle Option Changes
@@ -24,26 +29,15 @@ function eventChanged(value){
     console.log(`event has changed to ${value}`);
     var searchLink = `/events_final_games/${value}`;
 
-    if (value == "default"){
-        createDefault();
+    if (value == "all"){
+        createAllView();
     }
     else{
         eventFilteredCharts(searchLink);           
     }
-
-    console.log(`event has changed to ${value}`);
-    var searchLink = `/events_final_games/${value}`;
-    d3.select("#selCountry").property("value", "default");
 }
 
-
-// creating the default-option charts. This requires two different data calls due to data structure.
-function createDefault(){
-    console.log("the two default data pulls")
-    defaultOne ();
-}
-
-function defaultOne(){
+function createAllView(){
     var searchLink = "/events_final_country/"
     d3.json(searchLink, function(data){
         console.log(data);
@@ -163,11 +157,10 @@ function defaultOne(){
             winterNonmedals.push(nonmedalist);
         }
     
-
-        stackedOlympianBar('olympians-country', 'Olympians by Country');
-        olympianMedalBar('medalist-bar', '% Medalist by Country');
-        stackedEventBar('events-country', 'Event Medals by Country');
-        gdpCapMedalScatter('scatter', 'GDP and Medal Count', winterGdp, winterMedals, winterCountries, winterGames, summerGdp, summerMedals, summerCountries, summerGames);
+        medalScatter('scatter', 'GDP and Medal Count', winterGdp, winterMedals, winterCountries, winterGames, summerGdp, summerMedals, summerCountries, summerGames);
+        olympianMedalBar('medalist-bar');
+        stackedEventBar('events-country');
+        stackedOlympianBar('olympians-country');
     });
 }
 
@@ -331,10 +324,12 @@ function eventFilteredCharts(searchLink) {
         
         var medalist_perc= divideArraysTimesHundred(medals, olympians);
 
-        stackedOlympianBar('olympians-country', 'Olympians by Country', countries, golds, silvers, bronzes, nonmedals);
+        stackedOlympianHorBar('olympians-country', 'Olympians by Country', countries, golds, silvers, bronzes, nonmedals);
         olympianMedalBar('medalist-bar', '% Medalist by Country', countries, medalist_perc);
         stackedEventBar('events-country', 'Event Medals by Country', countries, tgolds, tsilvers, tbronzes);
-        gdpCapMedalScatter('scatter', 'GDP and Medal Count',winterGdp, winterMedals, winterCountries, winterGames, summerGdp, summerMedals, summerCountries, summerGames);
+        medalScatter('scatter-gdp', 'GDP and Medal Count',winterGdp, winterMedals, winterCountries, winterGames, summerGdp, summerMedals, summerCountries, summerGames);
+        medalScatter('scatter-pop', 'Population and Medal Count',winterPop, winterMedals, winterCountries, winterGames, summerPop, summerMedals, summerCountries, summerGames);
+        medalScatter('scatter-percap', 'GDP per Capita and Medal Count',winterGdp, winterMedals, winterCountries, winterGames, summerGdp, summerMedals, summerCountries, summerGames);
     });
 }
 
