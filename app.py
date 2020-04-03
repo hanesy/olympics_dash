@@ -253,7 +253,7 @@ def countries_per_event():
         func.count(Events_Final.NOC)
         ]
 
-    results = session.query(*sel).group_by(*sel[0:5]).all()
+    results = session.query(*sel).group_by(*sel[0:5]).order_by(Events_Final.Country).all()
 
     session.close ()
 
