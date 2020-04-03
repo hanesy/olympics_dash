@@ -4,6 +4,11 @@
   font-size: 18px;
 }
 
+.chart {
+  display: table-cell;
+  width:100%;
+}
+
 /* buttons */
 /* Emphasis */
 .btn {
