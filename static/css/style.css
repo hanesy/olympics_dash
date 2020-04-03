@@ -35,6 +35,7 @@
 .topBanner {
     margin-top: 30px;
     margin-bottom: 30px; 
+    padding-top: 60px;
 }
 
 .custom-select {

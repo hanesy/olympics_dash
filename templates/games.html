@@ -33,7 +33,7 @@
 
     <body class="body">
        
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <a class="navbar-brand" href="{{ url_for('index') }}"> <img src="/static/images/rings.png" height = '40' alt=""> </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,16 +61,16 @@
         </nav>
 
         <div class="row topBanner">
-            <div class="col-md-2"></div>
-            <div class="col-md-2">
+            <div class="col-md-4 text-right">
                 <img src="/static/images/rings.png" alt="Olympic Rings" style="height:150px">
             </div>
-            <div class="col-md-4"><h1 class=title>Olympic Data by Games</h1></div>
-            <div class="col-md-3">
+            <div class="col-md-4 text-center"><h1 class=title>Olympic Data by Games</h1></div>
+            <div class="col-md-4 text-left">
                 <h4>Filter by Game</h4>
                 <select id="selEvent" onchange="eventChanged(this.value)">
                 </select>
             </div>
+            <div class="col-md-2"></div>
         </div>
        
 
