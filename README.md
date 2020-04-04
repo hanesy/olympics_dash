@@ -70,7 +70,7 @@ For example, the world-map has changed quite a bit since 1960, so there have bee
 We also would have liked to include visualizations comparing distance traveled to medal count. This idea was sparked when we were playing with our filters and saw there a clear increase in medals for Australia during the Sydney games. Unfortunately, we simply did not have enough time to build the logic or visualizations.
 
 #### Statistical Analysis
-We also see potential to further statistical analysis (e.g., regression models) on different characteristics and countries' performance at the Olympics.
+We also see potential to further statistical analysis (e.g., regression models) on different characteristics and countries' performancs at the Olympics.
 
 ### What we would have done differently:
 First, we would have connected the map directly to the flask app. Currently, the map reads from a JSON file that was created from the same dataframe that created the sqlite database that feeds the Flask. So, what this means, is if we were to update the dashboard with Tokyo 2021 data or any other data, both the flask and the json file would need to be updated. Which adds unneeded steps to dashboard updates. (This really could also fall under – <i>If we had more time </i>).
