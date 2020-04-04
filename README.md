@@ -48,23 +48,23 @@ But less of a visual correlation in Population to medal count:
 Additionally, the data charts provide a broad area of information in Olympians by Country, % of Medalists by Country, and Event Medals by Country – based on which filter is chosen for Olympics Game (example: Summer 2016 – Rio de Janeiro).
 ![games_charts](screenshots/games_charts.png)
 
-##Observations
+## Observations
 What we observed in our visualizations is that there appeared to be a correlation between medal counts and GDP. Which would suggest that further analysis could be done on the statistical significance of this visible correlation.
 
 However, we did not see an apparent correlation between Medal Counts and Population. Which would deter us from further analysis.
 
-##Postmortem
+## Postmortem
 
-###If we had more time
+### If we had more time
 
-####Wider data pull
+#### Wider data pull
 We would like to have included a wider amount of data in relation to medal counts, even if keeping the same date window.
 For example, the world-map has changed quite a bit since 1960, so there have been a number of countries with name changes, which means there are a number of countries that have been omitted from our data; with exception to Russia -- previously known as the Soviet Union. We found that the Soviet Union had so much data that we included it in our country data chart analysis. But if time permitted, we would have either merged data of obsolete country names or added as many obsolete country names to the data dropdowns as possible, instead of excluding them.
 
-####Distance from Games
+#### Distance from Games
 We also would have liked to include visualizations comparing distance traveled to medal count. This idea was sparked when we were playing with our filters and saw there a clear increase in medals for Australia during the Sydney games. Unfortunately, we simply did not have enough time to build the logic or visualizations.
 
-###What we would have done differently
+### What we would have done differently
 First, we would have connected the map directly to the flask app. Currently, the map reads from a JSON file that was created from the same dataframe that created the sqlite database that feeds the Flask. So, what this means, is if we were to update the dashboard with Tokyo 2021 data or any other data, both the flask and the json file would need to be updated. Which adds unneeded steps to dashboard updates. (This really could also fall under – IF we had more time).
 
 And second, we would have liked to have planned a better data schema from the start, as we went through a number of iterations throughout the data structuring phase and on the fly during visualization creation as we realized we needed different data than what was available in our flask.
