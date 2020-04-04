@@ -31,7 +31,7 @@ It is worth noting two things:
 ![participants_game](screenshots/participants_game.png)
 
 ## Data by Country Page
-The <i>Data by Country </i> page provides the user information to interact with data related to a particular country and its performance in a particular year and game, whether Summer or Winter.
+The <i>Data by Country </i>page provides the user information to interact with data related to a particular country and its performance in a particular year and game, whether Summer or Winter.
 
 For example: when viewing Jamaica, their medalists will vary greatly from Summer vs Winter games.
 ![jamaica](screenshots/jamaica_country.png)
@@ -42,7 +42,7 @@ Additionally, it provides charts of Olympian counts, % of medalists and event me
 ![usa_country1](screenshots/usa_country3.png)
 
 ## Data by Game Page
-The <i>Data by Game </i> page delves deeper into the analysis of performance in relation to GDP and population by reviewing all countries.
+The <i>Data by Game </i>page delves deeper into the analysis of performance in relation to GDP and population by reviewing all countries.
 
 From here we can see some correlation in GDP to medal count:
 ![gdp](screenshots/gdp.png)
