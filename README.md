@@ -7,8 +7,11 @@ In doing this, we decided to choose a "modern" subset of Olympic Games, ranging 
 
 ### Parameters:
 •	Date range is from 1960 to 2016. This reflects the combined data from the World Bank and Olympic Data that overlapped for this project.
+
 •	Country names and boundaries have changed in the last sixty years. As an example: if you are looking for the full Olympic history of a country that was renamed - like Russia - you will need to look for both the Soviet Union and Russia.
+
 •	Not all countries have competed in both the Summer and Winter Olympics, and thus you may see some "blank" graphs due to non-participation.
+
 •	Winter and Summer Olympics were held in the same year until 1992, until they split into separate four-year cycles. The next Winter Olympics was held in 1994.
 
 ## Homepage
