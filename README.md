@@ -1,5 +1,5 @@
 # Olympics Dashboard
-[PowerPoint](https://docs.google.com/presentation/d/1BfHcjnQFo2-x0AgD8WOmCmHS4H0LbgmTFrgMlj3o-cc/edit?usp=sharing)
+[Google Slides](https://docs.google.com/presentation/d/1BfHcjnQFo2-x0AgD8WOmCmHS4H0LbgmTFrgMlj3o-cc/edit?usp=sharing)
 
 ## Dashboard Rationale
 This dashboard was developed to review the relevance of population & GDP to countries' performances at the Olympics.
@@ -22,41 +22,41 @@ The map is a choropleth map based on JavaScript, Leaflet and JSON; featuring a m
 ![map](screenshots/america_map.png)
 
 ### Participating Countries by Game
-The Participating Countries by Game graph provides a static representation of the number of countries that participated in each game presented in this study.
+The <i>Participating Countries by Game</i> graph provides a static representation of the number of countries that participated in each game presented in this study.
 
 It is worth noting two things:
 1)	The increase in participation over time 
-2)	The vast difference in participation between the Winter Games vs. the Summer Games.
+2)	The vast difference in participation between the Winter Games vs. the Summer Games due to the varying number of events in each season. For example, the most recent Summer Olympics had 306 events, with a total of 918 medals and the most recent Winter Olympics had only 102 events, the first Winter Olympics to surpass 100 events.
 
 ![participants_game](screenshots/participants_game.png)
 
 ## Data by Country Page
-The Country Page provides the user information to interact with data related to a particular country and its performance in a particular year and game, whether Summer or Winter.
+The <i>Country Page </i> provides the user information to interact with data related to a particular country and its performance in a particular year and game, whether Summer or Winter.
 
 For example: when viewing Jamaica, their medalists will vary greatly from Summer vs Winter games.
 ![jamaica](screenshots/jamaica_country.png)
 
-Additionally, it provides charts of Olympian counts, % of medalists and Event medalist over each Olympics Game (example: USA).
+Additionally, it provides charts of Olympian counts, % of medalists and event medalist over each Olympics Game (example: USA).
 ![usa_country1](screenshots/usa_country1.png)
 ![usa_country1](screenshots/usa_country2.png)
 ![usa_country1](screenshots/usa_country3.png)
 
 ## Data by Game Page
-The Data by Game page delves deeper into the analysis of performance in relation to GDP and Population by reviewing all countries.
+The <i>Data by Game page</i> delves deeper into the analysis of performance in relation to GDP and population by reviewing all countries.
 
 From here we can see some correlation in GDP to medal count:
 ![gdp](screenshots/gdp.png)
 
-But less of a visual correlation in Population to medal count:
+But less of a correlation in population to medal count:
 ![population](screenshots/population.png)
 
-Additionally, the data charts provide a broad area of information in Olympians by Country, % of Medalists by Country, and Event Medals by Country – based on which filter is chosen for Olympics Game (example: Summer 2016 – Rio de Janeiro).
+Additionally, the data charts provide a broad area of information in <i> Olympians by Country , % of Medalists by Country, </i> and <i> Event Medals by Country </i> – based on which filter is chosen for Olympics Game (example: Summer 2016 – Rio de Janeiro).
 ![games_charts](screenshots/games_charts.png)
 
 ## Observations
 What we observed in our visualizations is that there appeared to be a correlation between medal counts and GDP. Which would suggest that further analysis could be done on the statistical significance of this visible correlation.
 
-However, we did not see an apparent correlation between Medal Counts and Population. Which would deter us from further analysis.
+However, we did not see an apparent correlation between medal counts and population. Which would deter us from further analysis.
 
 ## Postmortem
 
@@ -70,6 +70,6 @@ For example, the world-map has changed quite a bit since 1960, so there have bee
 We also would have liked to include visualizations comparing distance traveled to medal count. This idea was sparked when we were playing with our filters and saw there a clear increase in medals for Australia during the Sydney games. Unfortunately, we simply did not have enough time to build the logic or visualizations.
 
 ### What we would have done differently:
-First, we would have connected the map directly to the flask app. Currently, the map reads from a JSON file that was created from the same dataframe that created the sqlite database that feeds the Flask. So, what this means, is if we were to update the dashboard with Tokyo 2021 data or any other data, both the flask and the json file would need to be updated. Which adds unneeded steps to dashboard updates. (This really could also fall under – IF we had more time).
+First, we would have connected the map directly to the flask app. Currently, the map reads from a JSON file that was created from the same dataframe that created the sqlite database that feeds the Flask. So, what this means, is if we were to update the dashboard with Tokyo 2021 data or any other data, both the flask and the json file would need to be updated. Which adds unneeded steps to dashboard updates. (This really could also fall under – <i>If we had more time </i>).
 
 And second, we would have liked to have planned a better data schema from the start, as we went through a number of iterations throughout the data structuring phase and on the fly during visualization creation as we realized we needed different data than what was available in our flask.
