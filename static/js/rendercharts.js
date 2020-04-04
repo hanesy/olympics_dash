@@ -259,9 +259,6 @@ function olympianPieSmall(selectDiv, title, nonmedals, golds, silvers, bronzes){
         title: 
         {
             text: title,
-            style: {
-                "fontSize": "10px"
-            }
         },
         
         tooltip: 
