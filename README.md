@@ -28,6 +28,8 @@ It is worth noting two things:
 1)	The increase in participation over time 
 2)	The vast difference in participation between the Winter Games vs. the Summer Games.
 
+![participants_game](screenshots/participants_game.png)
+
 ## Data by Country Page
 The Country Page provides the user information to interact with data related to a particular country and its performance in a particular year and game, whether Summer or Winter.
 
