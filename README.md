@@ -73,6 +73,6 @@ We also would have liked to include visualizations comparing distance traveled t
 We also see potential to further statistical analysis (e.g., regression models) on different characteristics and countries' performancs at the Olympics.
 
 ### What we would have done differently:
-First, we would have connected the map directly to the flask app. Currently, the map reads from a JSON file that was created from the same dataframe that created the sqlite database that feeds the Flask. So, what this means, is if we were to update the dashboard with Tokyo 2021 data or any other data, both the flask and the json file would need to be updated. Which adds unneeded steps to dashboard updates. (This really could also fall under – <i>If we had more time </i>).
+First, we would have connected the map directly to the flask app. Currently, the map reads from a json file that was created from the same dataframe that created the sqlite database that feeds the Flask. So, what this means, is if we were to update the dashboard with Tokyo 2021 data or any other data, both the flask and the json file would need to be updated. Which adds unneeded steps to dashboard updates (this really could also fall under – <i>If we had more time </i>).
 
 And second, we would have liked to have planned a better data schema from the start, as we went through a number of iterations throughout the data structuring phase and on the fly during visualization creation as we realized we needed different data than what was available in our flask.
