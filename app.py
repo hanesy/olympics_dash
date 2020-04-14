@@ -3,6 +3,8 @@ import warnings
 warnings.filterwarnings('ignore')
 import pandas as pd
 import numpy as np
+import psycopg2 
+
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -12,8 +14,18 @@ from sqlalchemy.ext.declarative import declarative_base
 from flask import Flask, jsonify, render_template
 app = Flask(__name__)
 
+# postgres disk engine
+import config
+host = config.host
+user = config.user
+password = config.password
+port = config.port
 
-disk_engine = create_engine('sqlite:///olympic_events.sqlite')
+db_url = 'postgresql+psycopg2://'+user+":"+ password + "@" + host + ":" + port + "/olympics"
+disk_engine = create_engine(db_url)
+
+# sql lite disk engine
+# disk_engine = create_engine('sqlite:///olympic_events.sqlite')
 Base = automap_base()
 Base.prepare(disk_engine, reflect=True)
 
