@@ -4,6 +4,7 @@ warnings.filterwarnings('ignore')
 import pandas as pd
 import numpy as np
 import psycopg2 
+import os
 
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
@@ -15,17 +16,27 @@ from flask import Flask, jsonify, render_template
 app = Flask(__name__)
 
 # postgres disk engine
-import config
-host = config.host
-user = config.user
-password = config.password
-port = config.port
+# import config
+# host = config.host
+# user = config.user
+# password = config.password
+# port = config.port
 
-db_url = 'postgresql+psycopg2://'+user+":"+ password + "@" + host + ":" + port + "/olympics"
-disk_engine = create_engine(db_url)
+# db_url = 'postgresql+psycopg2://'+user+":"+ password + "@" + host + ":" + port + "/olympics"
+# disk_engine = create_engine(db_url)
 
 # sql lite disk engine
 # disk_engine = create_engine('sqlite:///olympic_events.sqlite')
+
+from flask_sqlalchemy import SQLAlchemy
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', '') or 'postgresql+psycopg2://postgres:postgres@localhost:5432/olympics'
+
+# Remove tracking modifications
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+disk_engine = db.engine
+
 Base = automap_base()
 Base.prepare(disk_engine, reflect=True)
 
@@ -285,5 +296,5 @@ def countries_per_event():
     return jsonify(events_final_data)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
 
