@@ -79,3 +79,9 @@ We also see potential to further statistical analysis (e.g., regression models) 
 First, we would have connected the map directly to the flask app. Currently, the map reads from a json file that was created from the same dataframe that created the sqlite database that feeds the Flask. So, what this means, is if we were to update the dashboard with Tokyo 2021 data or any other data, both the flask and the json file would need to be updated. Which adds unneeded steps to dashboard updates (this really could also fall under – <i>If we had more time </i>).
 
 And second, we would have liked to have planned a better data schema from the start, as we went through a number of iterations throughout the data structuring phase and on the fly during visualization creation as we realized we needed different data than what was available in our flask.
+
+#### Contributors
+Dagney Cooke [LinkedIn](https://www.linkedin.com/in/dagney-cooke-4119b156/) [GitHub](https://github.com/dagneycooke)
+Shaymus McTeague [LinkedIn](https://www.linkedin.com/in/shaymusm/) [GitHub](https://github.com/shaymusmc)
+Diana Silva [LinkedIn](https://www.linkedin.com/in/dianalvesilva/) [GitHub](https://github.com/dialsilv)
+Heain Yee [LinkedIn](https://www.linkedin.com/in/heain-yee-82105818/) [GitHub](https://github.com/hanesy)
