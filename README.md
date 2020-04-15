@@ -1,5 +1,6 @@
 # Olympics Dashboard
 [Heroku App](https://olympics-dash.herokuapp.com/)
+
 [Google Slides](https://docs.google.com/presentation/d/1BfHcjnQFo2-x0AgD8WOmCmHS4H0LbgmTFrgMlj3o-cc/edit?usp=sharing)
 
 
