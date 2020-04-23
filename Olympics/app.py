@@ -40,7 +40,6 @@ disk_engine = db.engine
 Base = automap_base()
 Base.prepare(disk_engine, reflect=True)
 
-Events = Base.classes.events
 Events_Final = Base.classes.events_final
 
 @app.route("/")
